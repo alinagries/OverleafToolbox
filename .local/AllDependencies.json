@@ -1729,9 +1729,9 @@
     "restore": {
       "projectUniqueName": "OverleafTest",
       "projectName": "OverleafTest",
-      "projectPath": "C:\\Users\\Vincent\\Documents\\UiPath\\OverleafTest\\.local",
+      "projectPath": "C:\\Users\\Vincent\\Documents\\SoSe20\\RPA\\RPA2020\\.local",
       "packagesPath": "C:\\Users\\Vincent\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vincent\\Documents\\UiPath\\OverleafTest\\.local"
+      "outputPath": "C:\\Users\\Vincent\\Documents\\SoSe20\\RPA\\RPA2020\\.local"
     },
     "frameworks": {
       "net461": {
@@ -1759,14 +1759,5 @@
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU3034",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Extended.Wpf.Toolkit 2.8' from source 'https://api.nuget.org/v3/index.json': This package is signed but not by a trusted signer.",
-      "libraryId": "Extended.Wpf.Toolkit"
-    }
-  ]
+  }
 }
