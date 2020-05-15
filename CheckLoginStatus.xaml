@@ -1,6 +1,7 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="CheckLoginStatus" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="url" Type="OutArgument(ui:GenericValue)" />
+    <x:Property Name="currentBrowser" Type="InOutArgument(ui:Browser)" />
+    <x:Property Name="url_argument" Type="OutArgument(ui:GenericValue)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -75,7 +76,7 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="https://www.overleaf.com öffnen" sap:VirtualizedContainerService.HintSize="485,450" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" Url="https://www.overleaf.com">
+      <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Chrome" DisplayName="https://www.overleaf.com öffnen" sap:VirtualizedContainerService.HintSize="485,450" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" UiBrowser="[currentBrowser]" Url="https://www.overleaf.com">
         <ui:OpenBrowser.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
@@ -90,7 +91,7 @@
               <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
               <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="url" DisplayName="Get attribute" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="GetAttribute_1">
                 <ui:GetAttribute.Result>
-                  <OutArgument x:TypeArguments="ui:GenericValue">[url]</OutArgument>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[url_argument]</OutArgument>
                 </ui:GetAttribute.Result>
                 <ui:GetAttribute.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="b971281e-3c0a-47f8-a448-9704d8bb88f9" WaitForReady="INTERACTIVE">
@@ -100,7 +101,7 @@
                   </ui:Target>
                 </ui:GetAttribute.Target>
               </ui:GetAttribute>
-              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[url.ToString]" TopMost="True" />
+              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[url_argument.ToString]" TopMost="True" />
             </Sequence>
           </ActivityAction>
         </ui:OpenBrowser.Body>
