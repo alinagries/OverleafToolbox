@@ -3,6 +3,7 @@
   "description": "Leerer Prozess",
   "main": "Main.xaml",
   "dependencies": {
+    "BalaReva.ZipUnzip.Activities": "[2019.4.1]",
     "UiPath.Excel.Activities": "[2.8.4-preview]",
     "UiPath.Mail.Activities": "[1.8.4-preview]",
     "UiPath.System.Activities": "[20.4.0]",

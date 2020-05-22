@@ -11,6 +11,21 @@
           "lib/Net40/ICSharpCode.AvalonEdit.dll": {}
         }
       },
+      "BalaReva.ZipUnzip.Activities/2019.4.1": {
+        "type": "package",
+        "dependencies": {
+          "Ionic.Zip": "1.9.1.8",
+          "sharpcompress": "0.24.0"
+        },
+        "compile": {
+          "lib/_._": {}
+        },
+        "runtime": {
+          "lib/BalaReva.Zip.Design.dll": {},
+          "lib/BalaReva.Zip.dll": {},
+          "lib/SharpCompress.dll": {}
+        }
+      },
       "BouncyCastle/1.8.5": {
         "type": "package",
         "compile": {
@@ -121,6 +136,15 @@
           "lib/Interop.Domino.dll": {}
         }
       },
+      "Ionic.Zip/1.9.1.8": {
+        "type": "package",
+        "compile": {
+          "lib/_._": {}
+        },
+        "runtime": {
+          "lib/Ionic.Zip.dll": {}
+        }
+      },
       "Microsoft.AspNet.SignalR.Client/2.4.0": {
         "type": "package",
         "dependencies": {
@@ -197,6 +221,15 @@
           "lib/net45/NPOI.OpenXml4Net.dll": {},
           "lib/net45/NPOI.OpenXmlFormats.dll": {},
           "lib/net45/NPOI.dll": {}
+        }
+      },
+      "SharpCompress/0.24.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/SharpCompress.dll": {}
         }
       },
       "SharpZipLib/1.0.0": {
@@ -895,6 +928,19 @@
         "lib/Net40/ICSharpCode.AvalonEdit.xml"
       ]
     },
+    "BalaReva.ZipUnzip.Activities/2019.4.1": {
+      "sha512": "NNUkym4gjvxdGSZL9+BCBdDBe+ns8e3WmDG3jlvwYFFXLu2wGeMsMchx9AoAC1ZKU+o1mzo5WT5NlywnswlcFQ==",
+      "type": "package",
+      "path": "balareva.zipunzip.activities/2019.4.1",
+      "files": [
+        ".nupkg.metadata",
+        "balareva.zipunzip.activities.2019.4.1.nupkg.sha512",
+        "balareva.zipunzip.activities.nuspec",
+        "lib/BalaReva.Zip.Design.dll",
+        "lib/BalaReva.Zip.dll",
+        "lib/SharpCompress.dll"
+      ]
+    },
     "BouncyCastle/1.8.5": {
       "sha512": "196QWfvglefGd/Cr2C4hIdmA9HYkLFZovxJ7L0BAOFlNn+qlmVxqpxpcKGoC5AF4rOuoUq3ylzLgKZW5j4nmDQ==",
       "type": "package",
@@ -1016,6 +1062,19 @@
         "interop.domino.dll.1.0.0.nupkg.sha512",
         "interop.domino.dll.nuspec",
         "lib/Interop.Domino.dll"
+      ]
+    },
+    "Ionic.Zip/1.9.1.8": {
+      "sha512": "E77NU0+mXFsiJG/CikkINVD/2ugIgjqRZf41pixpAArRzOUrn/2gCL4G2PBREvRVOy+wU8ZbG/UBLcH4Tkw1gg==",
+      "type": "package",
+      "path": "ionic.zip/1.9.1.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ionic.zip.1.9.1.8.nupkg.sha512",
+        "ionic.zip.nuspec",
+        "lib/Ionic.Zip.dll",
+        "nuget.bat"
       ]
     },
     "Microsoft.AspNet.SignalR.Client/2.4.0": {
@@ -1159,6 +1218,22 @@
         "logo/60_60.jpg",
         "npoi.2.4.1.nupkg.sha512",
         "npoi.nuspec"
+      ]
+    },
+    "SharpCompress/0.24.0": {
+      "sha512": "3zpUOie9xRrEc6o33Z546rseYttnoxVDMC3wsGYsUa5wXas3wTG96v+dHxcGMCta/Kid9jFIl8/Lc/GbNpKZVA==",
+      "type": "package",
+      "path": "sharpcompress/0.24.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/SharpCompress.dll",
+        "lib/net45/SharpCompress.dll",
+        "lib/netstandard1.0/SharpCompress.dll",
+        "lib/netstandard1.3/SharpCompress.dll",
+        "lib/netstandard2.0/SharpCompress.dll",
+        "sharpcompress.0.24.0.nupkg.sha512",
+        "sharpcompress.nuspec"
       ]
     },
     "SharpZipLib/1.0.0": {
@@ -1716,6 +1791,7 @@
   "projectFileDependencyGroups": {
     "": [],
     ".NETFramework,Version=v4.6.1": [
+      "BalaReva.ZipUnzip.Activities >= 2019.4.1 <= 2019.4.1",
       "UiPath.Excel.Activities >= 2.8.4-preview <= 2.8.4-preview",
       "UiPath.Mail.Activities >= 1.8.4-preview <= 1.8.4-preview",
       "UiPath.System.Activities >= 20.4.0 <= 20.4.0",
@@ -1723,19 +1799,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Vincent\\.nuget\\packages\\": {}
+    "C:\\Users\\alina\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "OverleafTest",
       "projectName": "OverleafTest",
-      "projectPath": "C:\\Users\\Vincent\\Documents\\SoSe20\\RPA\\RPA2020\\.local",
-      "packagesPath": "C:\\Users\\Vincent\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vincent\\Documents\\SoSe20\\RPA\\RPA2020\\.local"
+      "projectPath": "C:\\Users\\alina\\OneDrive\\Desktop\\RPA\\git\\.local",
+      "packagesPath": "C:\\Users\\alina\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alina\\OneDrive\\Desktop\\RPA\\git\\.local"
     },
     "frameworks": {
       "net461": {
         "dependencies": {
+          "BalaReva.ZipUnzip.Activities": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[2019.4.1, 2019.4.1]"
+          },
           "UiPath.Excel.Activities": {
             "include": "Runtime",
             "target": "Package",
