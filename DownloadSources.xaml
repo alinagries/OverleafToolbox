@@ -107,6 +107,6 @@
         </ActivityAction>
       </ui:GetLastDownloadedFile.Body>
     </ui:GetLastDownloadedFile>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[downloadedFile.]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[downloadedFile.ToString]" />
   </Sequence>
 </Activity>
