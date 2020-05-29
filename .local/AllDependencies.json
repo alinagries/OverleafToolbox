@@ -1799,15 +1799,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\alina\\.nuget\\packages\\": {}
+    "C:\\Users\\Vincent\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "OverleafTest",
       "projectName": "OverleafTest",
-      "projectPath": "C:\\Users\\alina\\OneDrive\\Desktop\\RPA\\git\\.local",
-      "packagesPath": "C:\\Users\\alina\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alina\\OneDrive\\Desktop\\RPA\\git\\.local"
+      "projectPath": "C:\\Users\\Vincent\\Documents\\SoSe20\\RPA\\RPA2020\\.local",
+      "packagesPath": "C:\\Users\\Vincent\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Vincent\\Documents\\SoSe20\\RPA\\RPA2020\\.local"
     },
     "frameworks": {
       "net461": {
