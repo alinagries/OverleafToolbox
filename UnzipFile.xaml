@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>634,524</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,841</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>UnzipFile_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -57,6 +57,7 @@
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -64,13 +65,14 @@
       <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="UnzipFile" sap:VirtualizedContainerService.HintSize="536.666666666667,319.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="UnzipFile" sap:VirtualizedContainerService.HintSize="536,376" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="494.666666666667,80.6666666666667" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[unzipPath]" />
-    <bz:UnZipFile Password="{x:Null}" CodePage="1252" DisplayName="UnZip" ExtractFolderPath="[unzipPath]" sap:VirtualizedContainerService.HintSize="494.666666666667,106.666666666667" sap2010:WorkflowViewState.IdRef="UnZipFile_1" ZipFile="[Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)+&quot;\Downloads\&quot;+file.ToString]" />
+    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="494,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[unzipPath]" />
+    <bz:UnZipFile Password="{x:Null}" CodePage="1252" DisplayName="UnZip" ExtractFolderPath="[unzipPath]" sap:VirtualizedContainerService.HintSize="494,103" sap2010:WorkflowViewState.IdRef="UnZipFile_1" ZipFile="[file.FullName]" />
+    <ui:Delete ContinueOnError="{x:Null}" DisplayName="Delete Zip" sap:VirtualizedContainerService.HintSize="494,22" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[file.FullName]" />
   </Sequence>
 </Activity>
