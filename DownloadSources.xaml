@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1002,1031</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>694,1038.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DownloadSources_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -60,27 +60,27 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DownloadSources" sap:VirtualizedContainerService.HintSize="552,866" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DownloadSources" sap:VirtualizedContainerService.HintSize="552,874" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetLastDownloadedFile DisplayName="Download File" DownloadFolder="[&quot;C:\Users\&quot; + Environment.UserName + &quot;\Downloads&quot;]" File="[downloadedFile]" sap:VirtualizedContainerService.HintSize="510,643" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" Timeout="5">
-      <ui:GetLastDownloadedFile.Body>
-        <ActivityAction>
-          <Sequence sap:VirtualizedContainerService.HintSize="476,436" sap2010:WorkflowViewState.IdRef="Sequence_6">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[currentBrowser]" BrowserType="Chrome" DisplayName="Attach Browser 'YourProje Page'" sap:VirtualizedContainerService.HintSize="434,344" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="e4df99535806fa0b38cbfd7e85a35572">
-              <ui:BrowserScope.Body>
-                <ActivityAction x:TypeArguments="x:Object">
-                  <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-                  </ActivityAction.Argument>
+    <Sequence sap:VirtualizedContainerService.HintSize="510,647.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[currentBrowser]" BrowserType="Chrome" DisplayName="Attach Browser 'YourProje Page'" sap:VirtualizedContainerService.HintSize="468,555.333333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="e4df99535806fa0b38cbfd7e85a35572">
+        <ui:BrowserScope.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+            </ActivityAction.Argument>
+            <ui:GetLastDownloadedFile DisplayName="Download File" DownloadFolder="[&quot;C:\Users\&quot; + Environment.UserName + &quot;\Downloads&quot;]" File="[downloadedFile]" sap:VirtualizedContainerService.HintSize="434,409.333333333333" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" Timeout="5">
+              <ui:GetLastDownloadedFile.Body>
+                <ActivityAction>
                   <Sequence sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -101,12 +101,12 @@
                     </ui:Click>
                   </Sequence>
                 </ActivityAction>
-              </ui:BrowserScope.Body>
-            </ui:BrowserScope>
-          </Sequence>
-        </ActivityAction>
-      </ui:GetLastDownloadedFile.Body>
-    </ui:GetLastDownloadedFile>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[downloadedFile.ToString]" />
+              </ui:GetLastDownloadedFile.Body>
+            </ui:GetLastDownloadedFile>
+          </ActivityAction>
+        </ui:BrowserScope.Body>
+      </ui:BrowserScope>
+    </Sequence>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[downloadedFile.ToString]" />
   </Sequence>
 </Activity>
