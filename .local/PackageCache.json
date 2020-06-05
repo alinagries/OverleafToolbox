@@ -62,7 +62,7 @@
         "C:\\Users\\Vincent\\.nuget\\packages\\csvhelper/2.13.5\\lib/net40-client/CsvHelper.dll",
         "C:\\Users\\Vincent\\.nuget\\packages\\microsoft.aspnet.signalr.client/2.4.0\\lib/net45/Microsoft.AspNet.SignalR.Client.dll",
         "C:\\Users\\Vincent\\.nuget\\packages\\microsoft.rest.clientruntime/2.3.20\\lib/net461/Microsoft.Rest.ClientRuntime.dll",
-        "C:\\Users\\Vincent\\.nuget\\packages\\newtonsoft.json/11.0.2\\lib/net45/Newtonsoft.Json.dll",
+        "C:\\Users\\Vincent\\.nuget\\packages\\newtonsoft.json/12.0.3\\lib/net45/Newtonsoft.Json.dll",
         "C:\\Users\\Vincent\\.nuget\\packages\\uipath.system.activities/20.4.0\\lib/net461/ActiproSoftware.Docking.Wpf.dll",
         "C:\\Users\\Vincent\\.nuget\\packages\\uipath.system.activities/20.4.0\\lib/net461/ActiproSoftware.Ribbon.Wpf.dll",
         "C:\\Users\\Vincent\\.nuget\\packages\\uipath.system.activities/20.4.0\\lib/net461/ActiproSoftware.Shared.Wpf.dll",
@@ -92,7 +92,7 @@
         "C:\\Users\\Vincent\\.nuget\\packages\\extended.wpf.toolkit/2.8.0\\lib/net40/Xceed.Wpf.DataGrid.dll",
         "C:\\Users\\Vincent\\.nuget\\packages\\extended.wpf.toolkit/2.8.0\\lib/net40/Xceed.Wpf.Toolkit.dll",
         "C:\\Users\\Vincent\\.nuget\\packages\\humanizer.core/2.4.2\\lib/netstandard2.0/Humanizer.dll",
-        "C:\\Users\\Vincent\\.nuget\\packages\\newtonsoft.json/11.0.2\\lib/net45/Newtonsoft.Json.dll",
+        "C:\\Users\\Vincent\\.nuget\\packages\\newtonsoft.json/12.0.3\\lib/net45/Newtonsoft.Json.dll",
         "C:\\Users\\Vincent\\.nuget\\packages\\system.io.abstractions/3.0.10\\lib/net40/System.IO.Abstractions.dll",
         "C:\\Users\\Vincent\\.nuget\\packages\\system.threading.tasks.dataflow/4.10.0\\lib/netstandard2.0/System.Threading.Tasks.Dataflow.dll",
         "C:\\Users\\Vincent\\.nuget\\packages\\system.valuetuple/4.5.0\\lib/net461/System.ValueTuple.dll",
@@ -126,10 +126,34 @@
         "C:\\Users\\Vincent\\.nuget\\packages\\uipath.vision/2.0.3\\lib/net461/UiPath.Vision.dll"
       ],
       "Path": "C:\\Users\\Vincent\\.nuget\\packages\\uipath.uiautomation.activities\\20.4.1-preview"
+    },
+    {
+      "Package": {
+        "Id": "UiPath.Testing.Activities",
+        "Version": "1.0.0"
+      },
+      "Assemblies": [
+        "C:\\Users\\Vincent\\.nuget\\packages\\automapper/9.0.0\\lib/net461/AutoMapper.dll",
+        "C:\\Users\\Vincent\\.nuget\\packages\\microsoft.rest.clientruntime/2.3.20\\lib/net461/Microsoft.Rest.ClientRuntime.dll",
+        "C:\\Users\\Vincent\\.nuget\\packages\\microsoft.xaml.behaviors.wpf/1.0.1\\lib/net45/Microsoft.Xaml.Behaviors.dll",
+        "C:\\Users\\Vincent\\.nuget\\packages\\newtonsoft.json/12.0.3\\lib/net45/Newtonsoft.Json.dll",
+        "C:\\Users\\Vincent\\.nuget\\packages\\restsharp/106.6.10\\lib/net452/RestSharp.dll",
+        "C:\\Users\\Vincent\\.nuget\\packages\\uipath.testing.activities/1.0.0\\lib/net461/UiPath.Orchestrator.Client.dll",
+        "C:\\Users\\Vincent\\.nuget\\packages\\uipath.testing.activities/1.0.0\\lib/net461/UiPath.Testing.Activities.Design.dll",
+        "C:\\Users\\Vincent\\.nuget\\packages\\uipath.testing.activities/1.0.0\\lib/net461/UiPath.Testing.Activities.dll",
+        "C:\\Users\\Vincent\\.nuget\\packages\\uipath.testing.activities/1.0.0\\lib/net461/UiPath.Testing.dll",
+        "C:\\Users\\Vincent\\.nuget\\packages\\uipath.testing.activities/1.0.0\\lib/net461/UiPath.Web.Client.dll"
+      ],
+      "Path": "C:\\Users\\Vincent\\.nuget\\packages\\uipath.testing.activities\\1.0.0"
     }
   ],
   "Conflicts": [],
   "ResolvedDependencies": {
+    "AutoMapper": {
+      "Id": "AutoMapper",
+      "Version": "9.0.0",
+      "Dependencies": []
+    },
     "AvalonEdit": {
       "Id": "AvalonEdit",
       "Version": "5.0.3",
@@ -224,9 +248,14 @@
       "Version": "7.10.6071",
       "Dependencies": []
     },
+    "Microsoft.Xaml.Behaviors.Wpf": {
+      "Id": "Microsoft.Xaml.Behaviors.Wpf",
+      "Version": "1.0.1",
+      "Dependencies": []
+    },
     "Newtonsoft.Json": {
       "Id": "Newtonsoft.Json",
-      "Version": "11.0.2",
+      "Version": "12.0.3",
       "Dependencies": []
     },
     "NPOI": {
@@ -238,6 +267,11 @@
           "Item2": "[1.0.0, )"
         }
       ]
+    },
+    "RestSharp": {
+      "Id": "RestSharp",
+      "Version": "106.6.10",
+      "Dependencies": []
     },
     "SharpCompress": {
       "Id": "SharpCompress",
@@ -380,6 +414,32 @@
         }
       ]
     },
+    "UiPath.Testing.Activities": {
+      "Id": "UiPath.Testing.Activities",
+      "Version": "1.0.0",
+      "Dependencies": [
+        {
+          "Item1": "Microsoft.Xaml.Behaviors.Wpf",
+          "Item2": "[1.0.1, )"
+        },
+        {
+          "Item1": "AutoMapper",
+          "Item2": "[9.0.0, )"
+        },
+        {
+          "Item1": "Microsoft.Rest.ClientRuntime",
+          "Item2": "[2.3.20, )"
+        },
+        {
+          "Item1": "Newtonsoft.Json",
+          "Item2": "[12.0.3, )"
+        },
+        {
+          "Item1": "RestSharp",
+          "Item2": "[106.6.10, )"
+        }
+      ]
+    },
     "UiPath.UIAutomation.Activities": {
       "Id": "UiPath.UIAutomation.Activities",
       "Version": "20.4.1-preview",
@@ -442,6 +502,16 @@
     }
   },
   "AllPackages": [
+    {
+      "Package": {
+        "Id": "AutoMapper",
+        "Version": "9.0.0"
+      },
+      "Assemblies": [
+        "C:\\Users\\Vincent\\.nuget\\packages\\automapper\\9.0.0\\lib\\net461\\AutoMapper.dll"
+      ],
+      "Path": "C:\\Users\\Vincent\\.nuget\\packages\\automapper\\9.0.0"
+    },
     {
       "Package": {
         "Id": "AvalonEdit",
@@ -592,13 +662,23 @@
     },
     {
       "Package": {
-        "Id": "Newtonsoft.Json",
-        "Version": "11.0.2"
+        "Id": "Microsoft.Xaml.Behaviors.Wpf",
+        "Version": "1.0.1"
       },
       "Assemblies": [
-        "C:\\Users\\Vincent\\.nuget\\packages\\newtonsoft.json\\11.0.2\\lib\\net45\\Newtonsoft.Json.dll"
+        "C:\\Users\\Vincent\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.0.1\\lib\\net45\\Microsoft.Xaml.Behaviors.dll"
       ],
-      "Path": "C:\\Users\\Vincent\\.nuget\\packages\\newtonsoft.json\\11.0.2"
+      "Path": "C:\\Users\\Vincent\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.0.1"
+    },
+    {
+      "Package": {
+        "Id": "Newtonsoft.Json",
+        "Version": "12.0.3"
+      },
+      "Assemblies": [
+        "C:\\Users\\Vincent\\.nuget\\packages\\newtonsoft.json\\12.0.3\\lib\\net45\\Newtonsoft.Json.dll"
+      ],
+      "Path": "C:\\Users\\Vincent\\.nuget\\packages\\newtonsoft.json\\12.0.3"
     },
     {
       "Package": {
@@ -612,6 +692,16 @@
         "C:\\Users\\Vincent\\.nuget\\packages\\npoi\\2.4.1\\lib\\net45\\NPOI.dll"
       ],
       "Path": "C:\\Users\\Vincent\\.nuget\\packages\\npoi\\2.4.1"
+    },
+    {
+      "Package": {
+        "Id": "RestSharp",
+        "Version": "106.6.10"
+      },
+      "Assemblies": [
+        "C:\\Users\\Vincent\\.nuget\\packages\\restsharp\\106.6.10\\lib\\net452\\RestSharp.dll"
+      ],
+      "Path": "C:\\Users\\Vincent\\.nuget\\packages\\restsharp\\106.6.10"
     },
     {
       "Package": {
@@ -750,6 +840,20 @@
         "C:\\Users\\Vincent\\.nuget\\packages\\uipath.telemetry.client\\1.1.51\\lib\\net461\\TelemetryClient.dll"
       ],
       "Path": "C:\\Users\\Vincent\\.nuget\\packages\\uipath.telemetry.client\\1.1.51"
+    },
+    {
+      "Package": {
+        "Id": "UiPath.Testing.Activities",
+        "Version": "1.0.0"
+      },
+      "Assemblies": [
+        "C:\\Users\\Vincent\\.nuget\\packages\\uipath.testing.activities\\1.0.0\\lib\\net461\\UiPath.Orchestrator.Client.dll",
+        "C:\\Users\\Vincent\\.nuget\\packages\\uipath.testing.activities\\1.0.0\\lib\\net461\\UiPath.Testing.Activities.Design.dll",
+        "C:\\Users\\Vincent\\.nuget\\packages\\uipath.testing.activities\\1.0.0\\lib\\net461\\UiPath.Testing.Activities.dll",
+        "C:\\Users\\Vincent\\.nuget\\packages\\uipath.testing.activities\\1.0.0\\lib\\net461\\UiPath.Testing.dll",
+        "C:\\Users\\Vincent\\.nuget\\packages\\uipath.testing.activities\\1.0.0\\lib\\net461\\UiPath.Web.Client.dll"
+      ],
+      "Path": "C:\\Users\\Vincent\\.nuget\\packages\\uipath.testing.activities\\1.0.0"
     },
     {
       "Package": {
