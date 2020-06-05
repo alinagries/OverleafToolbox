@@ -106,8 +106,9 @@
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke loginToGitHub workflow" sap:VirtualizedContainerService.HintSize="755,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="loginToGitHub.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="unzipPath">[unzipPath]</InArgument>
-        <OutArgument x:TypeArguments="ui:Browser" x:Key="githubBrowser">[githubBrowser]</OutArgument>
+        <OutArgument x:TypeArguments="ui:Browser" x:Key="githubBrowser">
+          <mva:VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="githubBrowser" />
+        </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke UploadToGit workflow" sap:VirtualizedContainerService.HintSize="755,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="UploadToGithub.xaml">
