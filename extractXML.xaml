@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>608.666666666667,1268.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>836.666666666667,1620</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>extractXML_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -64,24 +64,23 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="extractXML" sap:VirtualizedContainerService.HintSize="426,1104" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="extractXML" sap:VirtualizedContainerService.HintSize="846.666666666667,1455.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="xml_data" />
       <Variable x:TypeArguments="sxl:XDocument" Name="out_XML" />
       <Variable x:TypeArguments="scg:ICollection(x:String)" Name="titles" />
       <Variable x:TypeArguments="x:String" Name="itemTitle" />
       <Variable x:TypeArguments="s:String[]" Name="titleArray" />
-      <Variable x:TypeArguments="x:String" Name="paper" />
+      <Variable x:TypeArguments="x:Int32" Name="counter" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="384,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[xml.FullName]" />
-    <ui:ReadTextFile Content="[xml_data]" DisplayName="Read Text File" FileName="[xml.FullName]" sap:VirtualizedContainerService.HintSize="384,80.6666666666667" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-    <ui:DeserializeXml DisplayName="Deserialize XML" sap:VirtualizedContainerService.HintSize="384,62" sap2010:WorkflowViewState.IdRef="DeserializeXml_1" XMLDocument="[out_XML]" XMLString="[xml_data]" />
-    <Assign sap:VirtualizedContainerService.HintSize="384,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <ui:ReadTextFile Content="[xml_data]" DisplayName="Read Text File" FileName="[xml.FullName]" sap:VirtualizedContainerService.HintSize="804.666666666667,80.6666666666667" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+    <ui:DeserializeXml DisplayName="Deserialize XML" sap:VirtualizedContainerService.HintSize="804.666666666667,62" sap2010:WorkflowViewState.IdRef="DeserializeXml_1" XMLDocument="[out_XML]" XMLString="[xml_data]" />
+    <Assign sap:VirtualizedContainerService.HintSize="804.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:ICollection(x:String)">[titles]</OutArgument>
       </Assign.To>
@@ -89,13 +88,21 @@
         <InArgument x:TypeArguments="scg:ICollection(x:String)">[New List(of string)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="384,354.666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[out_XML.Element(“result”).Element(&quot;hits&quot;).Elements(&quot;hit&quot;).Elements(&quot;info&quot;)]">
+    <Assign sap:VirtualizedContainerService.HintSize="804.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">0</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="804.666666666667,702.666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[out_XML.Element(“result”).Element(&quot;hits&quot;).Elements(&quot;hit&quot;).Elements(&quot;info&quot;)]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="sxl:XElement">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sxl:XElement" Name="item" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Hauptteil" sap:VirtualizedContainerService.HintSize="304,216" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Hauptteil" sap:VirtualizedContainerService.HintSize="768,564" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="variable1" />
             </Sequence.Variables>
@@ -104,20 +111,50 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_3">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[itemTitle]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[item.Element("title").Value]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <AddToCollection x:TypeArguments="x:String" Collection="[titles]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[itemTitle]" />
+            <If Condition="[counter &gt; 20]" sap:VirtualizedContainerService.HintSize="726,472" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,212.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;Found the 20 most relevant entries&quot;]" />
+                  <ui:Break sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Break_2" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="304,318" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_6">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[counter+1]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[itemTitle]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[item.Element("title").Value]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <AddToCollection x:TypeArguments="x:String" Collection="[titles]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[itemTitle]" />
+                </Sequence>
+              </If.Else>
+            </If>
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <Assign sap:VirtualizedContainerService.HintSize="384,62" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <Assign sap:VirtualizedContainerService.HintSize="804.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[titleArray]</OutArgument>
       </Assign.To>
@@ -125,7 +162,7 @@
         <InArgument x:TypeArguments="s:String[]">[titles.ToArray]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InputDialog DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="384,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Which Paper do you mean?" Options="[titleArray]" Title="Choose Paper">
+    <ui:InputDialog DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="804.666666666667,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Which Paper do you mean?" Options="[titleArray]" Title="Choose Paper">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[paper]</OutArgument>
       </ui:InputDialog.Result>
