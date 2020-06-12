@@ -3,7 +3,7 @@
     <x:Property Name="currentBrowser" Type="OutArgument(ui:Browser)" />
     <x:Property Name="papertitle" Type="OutArgument(x:String)" />
     <x:Property Name="xml" Type="InOutArgument(si:FileInfo)" />
-    <x:Property Name="paper" Type="InArgument(x:String)" />
+    <x:Property Name="paper" Type="InOutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -74,6 +74,8 @@
       <Variable x:TypeArguments="ui:GenericValue" Name="PCompletesearchInfo" />
       <Variable x:TypeArguments="ui:Browser" Default="[currentBrowser]" Name="currentBrowser" />
       <Variable x:TypeArguments="si:FileInfo" Name="xml" />
+      <Variable x:TypeArguments="x:String" Name="paper" />
+      <Variable x:TypeArguments="x:String" Name="variable1" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -156,7 +158,12 @@
                   <If.Then>
                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke downloadBibTeX workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="downloadBibTeX.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="ui:Browser" x:Key="currentBrowser">[currentBrowser]</InArgument>
+                        <InArgument x:TypeArguments="ui:Browser" x:Key="currentBrowser">
+                          <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="currentBrowser" />
+                        </InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="paper">
+                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="paper" />
+                        </InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                   </If.Then>
@@ -175,8 +182,12 @@
                       </ui:InvokeWorkflowFile>
                       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke extractXML workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="extractXML.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="si:FileInfo" x:Key="xml">[xml]</InArgument>
-                          <OutArgument x:TypeArguments="x:String" x:Key="paper">[paper]</OutArgument>
+                          <InArgument x:TypeArguments="si:FileInfo" x:Key="xml">
+                            <mva:VisualBasicValue x:TypeArguments="si:FileInfo" ExpressionText="xml" />
+                          </InArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="paper">
+                            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="paper" />
+                          </OutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                       <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Downloading BibTeX of  &quot;+paper]" TopMost="True" />
@@ -184,7 +195,12 @@
                       <Delay DisplayName="Wait for Website loaded" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
                       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke downloadBibTeX workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="downloadBibTeX.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="ui:Browser" x:Key="currentBrowser">[currentBrowser]</InArgument>
+                          <InArgument x:TypeArguments="ui:Browser" x:Key="currentBrowser">
+                            <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="currentBrowser" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="paper">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="paper" />
+                          </InArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                     </Sequence>
