@@ -129,7 +129,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <ui:Delete ContinueOnError="True" DisplayName="Delete old Files" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[&quot;C:\Users\&quot;+Environment.UserName+&quot;\AppData\Local\Temp\RPA\api.xml&quot;]" />
-                    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="434,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[C:\Users\&quot;+Environment.UserName+&quot;\AppData\Local\Temp\RPA]" />
+                    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="434,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[&quot;C:\Users\&quot;+Environment.UserName+&quot;\AppData\Local\Temp\RPA&quot;]" />
                     <ui:GetLastDownloadedFile Timeout="{x:Null}" DisplayName="Download File" DownloadFolder="[&quot;C:\Users\&quot;+Environment.UserName+&quot;\AppData\Local\Temp\RPA&quot;]" File="[xml]" sap:VirtualizedContainerService.HintSize="434,433" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1">
                       <ui:GetLastDownloadedFile.Body>
                         <ActivityAction>
