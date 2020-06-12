@@ -1,7 +1,7 @@
 {
   "name": "OverleafTest",
   "description": "Leerer Prozess",
-  "main": "Main.xaml",
+  "main": "src\\Main.xaml",
   "dependencies": {
     "BalaReva.ZipUnzip.Activities": "[2019.4.1]",
     "CuteAnt.Text.RegularExpressions": "[2.1.0-rc1-180512-01]",
