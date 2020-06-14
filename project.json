@@ -35,7 +35,13 @@
       "includeOriginalXaml": false,
       "privateWorkflows": []
     },
-    "fileInfoCollection": []
+    "fileInfoCollection": [
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "15ef285a-a05c-4ffd-b528-635c7d5c48e6",
+        "fileName": "tests\\TestIncreasesCommitCount.xaml"
+      }
+    ]
   },
   "expressionLanguage": "VisualBasic"
 }
