@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1284,2135</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1286,2504.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>citation_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -63,7 +63,7 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="citation" sap:VirtualizedContainerService.HintSize="1294,1970" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="citation" sap:VirtualizedContainerService.HintSize="1296,2340" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="papertitle">
         <Variable.Default>
@@ -82,18 +82,18 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InputDialog Options="{x:Null}" DisplayName="Get Paper Title" sap:VirtualizedContainerService.HintSize="1252,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Please enter a search string" Title="BibTeX Search">
+    <ui:InputDialog Options="{x:Null}" DisplayName="Get Paper Title" sap:VirtualizedContainerService.HintSize="1254,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Please enter a search string" Title="BibTeX Search">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[papertitle]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" Hidden="False" sap:VirtualizedContainerService.HintSize="1252,1746" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="True" UiBrowser="[currentBrowser]" Url="https://dblp.org/">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" Hidden="False" sap:VirtualizedContainerService.HintSize="1254,2116" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="True" UiBrowser="[currentBrowser]" Url="https://dblp.org/">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="1218,1645" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence sap:VirtualizedContainerService.HintSize="1220,2013.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <Sequence.Variables>
               <Variable x:TypeArguments="ui:Browser" Name="lastBrowser" />
             </Sequence.Variables>
@@ -102,13 +102,13 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1176,526" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1178,888.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT'" sap:VirtualizedContainerService.HintSize="376,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[papertitle]">
+              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT'" sap:VirtualizedContainerService.HintSize="518,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[papertitle]">
                 <ui:TypeInto.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="703310f7-1a3c-42c7-a57e-d386347a5479" InformativeScreenshot="1fd776d096517145d1a3db0a9b576364" Selector="&lt;webctrl name='q' tag='INPUT' /&gt;">
                     <ui:Target.TimeoutMS>
@@ -120,16 +120,16 @@
                   </ui:Target>
                 </ui:TypeInto.Target>
               </ui:TypeInto>
-              <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="376,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
-              <Sequence DisplayName="Screen Scraping" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="518,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+              <Sequence DisplayName="Screen Scraping" sap:VirtualizedContainerService.HintSize="518,560.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:GetVisibleText WordsInfo="{x:Null}" DisplayName="Get Visible Text 'P  completesearch-info-...'" FormattedText="False" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_1">
+                <ui:GetVisibleText WordsInfo="{x:Null}" DisplayName="Get Visible Text 'P  completesearch-info-...'" FormattedText="False" sap:VirtualizedContainerService.HintSize="476,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_2">
                   <ui:GetVisibleText.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e5bbc858-938c-49c1-ade9-46dbe8b454d8" InformativeScreenshot="8d870c49f9f4e45a4920e754b35ee86c" Selector="&lt;webctrl id='completesearch-info-matches' tag='P' /&gt;" WaitForReady="COMPLETE">
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d131a221-3eee-4154-9bf7-acf08dd9cb2c" InformativeScreenshot="f6bee34cd4efa77348c9c1f101992ff5" Selector="&lt;webctrl id='completesearch-info-matches' tag='P' /&gt;" WaitForReady="COMPLETE">
                       <ui:Target.TimeoutMS>
                         <InArgument x:TypeArguments="x:Int32" />
                       </ui:Target.TimeoutMS>
@@ -139,9 +139,35 @@
                     <OutArgument x:TypeArguments="ui:GenericValue">[PCompletesearchInfo]</OutArgument>
                   </ui:GetVisibleText.Text>
                 </ui:GetVisibleText>
+                <Sequence DisplayName="Screen Scraping" sap:VirtualizedContainerService.HintSize="476,322.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="ui:GenericValue" Name="PCompletesearchInfo" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'DblpSearc Page'" sap:VirtualizedContainerService.HintSize="434,230.666666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="fa2b0ecb138f071ded5273c45a9d7205" Selector="&lt;html app='chrome.exe' title='dblp: Search for &amp;quot;weske&amp;quot;' /&gt;">
+                    <ui:BrowserScope.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,84.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:BrowserScope.Body>
+                  </ui:BrowserScope>
+                </Sequence>
               </Sequence>
             </Sequence>
-            <If Condition="[PCompletesearchInfo.ToString.Contains(&quot;no matches&quot;)]" sap:VirtualizedContainerService.HintSize="1176,987" sap2010:WorkflowViewState.IdRef="If_2">
+            <If Condition="[PCompletesearchInfo.ToString.Contains(&quot;no matches&quot;)]" sap:VirtualizedContainerService.HintSize="1178,992.666666666667" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>
                 <Sequence DisplayName="Error Handling" sap:VirtualizedContainerService.HintSize="376,213" sap2010:WorkflowViewState.IdRef="Sequence_10">
                   <sap:WorkflowViewStateService.ViewState>
@@ -154,21 +180,17 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <If Condition="[PCompletesearchInfo.ToString.Contains(&quot;found 1 match&quot;)]" sap:VirtualizedContainerService.HintSize="755,840" sap2010:WorkflowViewState.IdRef="If_1">
+                <If Condition="[PCompletesearchInfo.ToString.Contains(&quot;found 1 match&quot;)]" sap:VirtualizedContainerService.HintSize="756,842" sap2010:WorkflowViewState.IdRef="If_1">
                   <If.Then>
                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke downloadBibTeX workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="src/downloadBibTeX.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="ui:Browser" x:Key="currentBrowser">
-                          <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="currentBrowser" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="paper">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="papertitle" />
-                        </InArgument>
+                        <InArgument x:TypeArguments="ui:Browser" x:Key="currentBrowser">[currentBrowser]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="paper">[papertitle]</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                   </If.Then>
                   <If.Else>
-                    <Sequence sap:VirtualizedContainerService.HintSize="376,693" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <Sequence sap:VirtualizedContainerService.HintSize="376,691.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>

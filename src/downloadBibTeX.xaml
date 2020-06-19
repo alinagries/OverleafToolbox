@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,1445</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>638.666666666667,1448.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>downloadBibTeX_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -65,7 +65,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="downloadBibTeX" sap:VirtualizedContainerService.HintSize="594,1280" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="downloadBibTeX" sap:VirtualizedContainerService.HintSize="594,1284" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="si:FileInfo" Name="bibtexfile" />
     </Sequence.Variables>
@@ -74,19 +74,19 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[currentBrowser]" BrowserType="Chrome" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="552,1089" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="d4c6f80ace583c0be6af9a4f6d5dd0b6">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[currentBrowser]" BrowserType="Chrome" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="552,1093.33333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="d4c6f80ace583c0be6af9a4f6d5dd0b6">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="518,943" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence sap:VirtualizedContainerService.HintSize="518,947.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence sap:VirtualizedContainerService.HintSize="476,705" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence sap:VirtualizedContainerService.HintSize="476,709.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Default="[&quot;&lt;html app='chrome.exe' title='dblp: Search for &amp;quot;&quot;+paper+&quot;&amp;quot;' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;nav&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;a&amp;gt;img' src='https://dblp.org/img/download.dark.hollow.16x16.png' tag='IMG' /&gt;&quot;]" Name="downloadSelector" />
               </Sequence.Variables>
@@ -118,7 +118,7 @@
                   </ui:Target>
                 </ui:Click.Target>
               </ui:Click>
-              <ui:GetLastDownloadedFile Timeout="{x:Null}" DisplayName="Download BibteX" DownloadFolder="[&quot;C:\Users\&quot; + Environment.UserName + &quot;\Downloads&quot;]" File="[bibtexfile]" sap:VirtualizedContainerService.HintSize="434,405" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1">
+              <ui:GetLastDownloadedFile Timeout="{x:Null}" DisplayName="Download BibteX" DownloadFolder="[&quot;C:\Users\&quot; + Environment.UserName + &quot;\Downloads&quot;]" File="[bibtexfile]" sap:VirtualizedContainerService.HintSize="434,409.333333333333" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1">
                 <ui:GetLastDownloadedFile.Body>
                   <ActivityAction>
                     <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_2">
@@ -180,6 +180,6 @@
         </ActivityAction>
       </ui:BrowserScope.Body>
     </ui:BrowserScope>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="552,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Downloded BibTeX File in your Downloads Folder&quot;]" TopMost="True" />
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="552,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Downloded BibTeX File in your Downloads Folder&quot;]" TopMost="True" />
   </Sequence>
 </Activity>

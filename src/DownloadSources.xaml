@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>542,1035</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>542,1038.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DownloadSources_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -60,25 +60,25 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DownloadSources" sap:VirtualizedContainerService.HintSize="552,870" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DownloadSources" sap:VirtualizedContainerService.HintSize="552,874" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="510,643" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <Sequence sap:VirtualizedContainerService.HintSize="510,647.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[currentBrowser]" BrowserType="Chrome" DisplayName="Attach Browser 'YourProje Page'" sap:VirtualizedContainerService.HintSize="468,551" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="e4df99535806fa0b38cbfd7e85a35572">
+      <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[currentBrowser]" BrowserType="Chrome" DisplayName="Attach Browser 'YourProje Page'" sap:VirtualizedContainerService.HintSize="468,555.333333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="e4df99535806fa0b38cbfd7e85a35572">
         <ui:BrowserScope.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
             </ActivityAction.Argument>
-            <ui:GetLastDownloadedFile DisplayName="Download File" DownloadFolder="[&quot;C:\Users\&quot; + Environment.UserName + &quot;\Downloads&quot;]" File="[downloadedFile]" sap:VirtualizedContainerService.HintSize="434,405" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" Timeout="10">
+            <ui:GetLastDownloadedFile DisplayName="Download File" DownloadFolder="[&quot;C:\Users\&quot; + Environment.UserName + &quot;\Downloads&quot;]" File="[downloadedFile]" sap:VirtualizedContainerService.HintSize="434,409.333333333333" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" Timeout="10">
               <ui:GetLastDownloadedFile.Body>
                 <ActivityAction>
                   <Sequence sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_4">
@@ -89,10 +89,10 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Download Icon" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
                       <ui:Click.CursorPosition>
-                        <ui:CursorPosition OffsetX="8" OffsetY="10" Position="TopLeft" />
+                        <ui:CursorPosition OffsetX="9" OffsetY="8" Position="TopLeft" />
                       </ui:Click.CursorPosition>
                       <ui:Click.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="be432be4-00aa-407d-84b5-d8d8d53ba219" InformativeScreenshot="334273f80da7cb62ce34568dc437a1d5" Selector="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;button&amp;gt;i' idx='2' tag='I' /&gt;" WaitForReady="COMPLETE">
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="be432be4-00aa-407d-84b5-d8d8d53ba219" InformativeScreenshot="34ede592d9dc292fb7e7998422187aff" Selector="&lt;html app='chrome.exe' title='Your Projects - Overleaf, Online LaTeX Editor' /&gt;&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;button&amp;gt;i' idx='2' tag='I' /&gt;" WaitForReady="COMPLETE">
                           <ui:Target.TimeoutMS>
                             <InArgument x:TypeArguments="x:Int32" />
                           </ui:Target.TimeoutMS>
