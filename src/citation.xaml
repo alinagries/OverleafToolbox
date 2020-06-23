@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1284,2135</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1284,2041</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>citation_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -63,7 +63,7 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="citation" sap:VirtualizedContainerService.HintSize="1294,1970" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="citation" sap:VirtualizedContainerService.HintSize="1294,1876" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="papertitle">
         <Variable.Default>
@@ -87,13 +87,13 @@
         <OutArgument x:TypeArguments="x:String">[papertitle]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" Hidden="False" sap:VirtualizedContainerService.HintSize="1252,1746" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="True" UiBrowser="[currentBrowser]" Url="https://dblp.org/">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" Hidden="False" sap:VirtualizedContainerService.HintSize="1252,1652" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="True" UiBrowser="[currentBrowser]" Url="https://dblp.org/">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="1218,1645" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence sap:VirtualizedContainerService.HintSize="1218,1550" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <Sequence.Variables>
               <Variable x:TypeArguments="ui:Browser" Name="lastBrowser" />
             </Sequence.Variables>
@@ -141,7 +141,7 @@
                 </ui:GetVisibleText>
               </Sequence>
             </Sequence>
-            <If Condition="[PCompletesearchInfo.ToString.Contains(&quot;no matches&quot;)]" sap:VirtualizedContainerService.HintSize="1176,987" sap2010:WorkflowViewState.IdRef="If_2">
+            <If Condition="[PCompletesearchInfo.ToString.Contains(&quot;no matches&quot;)]" sap:VirtualizedContainerService.HintSize="1176,892" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>
                 <Sequence DisplayName="Error Handling" sap:VirtualizedContainerService.HintSize="376,213" sap2010:WorkflowViewState.IdRef="Sequence_10">
                   <sap:WorkflowViewStateService.ViewState>
@@ -154,21 +154,17 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <If Condition="[PCompletesearchInfo.ToString.Contains(&quot;found 1 match&quot;)]" sap:VirtualizedContainerService.HintSize="755,840" sap2010:WorkflowViewState.IdRef="If_1">
+                <If Condition="[PCompletesearchInfo.ToString.Contains(&quot;found 1 match&quot;)]" sap:VirtualizedContainerService.HintSize="755,743" sap2010:WorkflowViewState.IdRef="If_1">
                   <If.Then>
                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke downloadBibTeX workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="src/downloadBibTeX.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="ui:Browser" x:Key="currentBrowser">
-                          <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="currentBrowser" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="paper">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="papertitle" />
-                        </InArgument>
+                        <InArgument x:TypeArguments="ui:Browser" x:Key="currentBrowser">[currentBrowser]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="paper">[papertitle]</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                   </If.Then>
                   <If.Else>
-                    <Sequence sap:VirtualizedContainerService.HintSize="376,693" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <Sequence sap:VirtualizedContainerService.HintSize="376,594" sap2010:WorkflowViewState.IdRef="Sequence_6">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -186,7 +182,6 @@
                           <OutArgument x:TypeArguments="x:String" x:Key="paper">[paper]</OutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
-                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Downloading BibTeX of  &quot;+paper]" TopMost="True" />
                       <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate To" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="NavigateTo_1" Url="[&quot;https://dblp.org/search?q=&quot;+paper]" />
                       <Delay DisplayName="Wait for Website loaded" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
                       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke downloadBibTeX workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="src/downloadBibTeX.xaml">
