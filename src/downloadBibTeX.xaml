@@ -197,7 +197,7 @@
     </ui:BrowserScope>
     <ui:MessageBox Caption="{x:Null}" Buttons="YesNo" ChosenButton="[copyToOverleaf]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="755,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Downloded BibTeX File in your Downloads Folder. Do you want me to copy it in your Overleaf?&quot;]" TopMost="True" />
     <ui:CloseTab Browser="[currentBrowser]" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="755,22" sap2010:WorkflowViewState.IdRef="CloseTab_1" />
-    <If Condition="[copyToOverleaf = &quot;Ja&quot; Or copyToOverleaf = &quot;Yes&quot;]" sap:VirtualizedContainerService.HintSize="755,327" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[copyToOverleaf = &quot;Yes&quot;]" sap:VirtualizedContainerService.HintSize="755,327" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
