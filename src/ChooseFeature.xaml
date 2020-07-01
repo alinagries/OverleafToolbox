@@ -75,7 +75,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,165.5 300,206.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InputDialog Title="{x:Null}" DisplayName="Choose a feature" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Was willst du tun?" Options="[{&quot;Github uploading&quot;,&#xD;&#xA;&quot;find a citation&quot;,&#xD;&#xA;&quot;update advisors&quot;}]">
+      <ui:InputDialog Title="{x:Null}" DisplayName="Choose a feature" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="What would you like to do?" Options="[{&quot;Github uploading&quot;,&#xD;&#xA;&quot;find a citation&quot;,&#xD;&#xA;&quot;update advisors&quot;}]">
         <ui:InputDialog.Result>
           <OutArgument x:TypeArguments="x:String">[chosenFeature]</OutArgument>
         </ui:InputDialog.Result>
