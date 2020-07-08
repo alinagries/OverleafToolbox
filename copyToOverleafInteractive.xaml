@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,1769</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,1868</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>copyToOverleafInteractive_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -65,7 +65,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="copyToOverleafInteractive" sap:VirtualizedContainerService.HintSize="574,1604" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="copyToOverleafInteractive" sap:VirtualizedContainerService.HintSize="574,1703" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Browser" Name="currentBrowser" />
     </Sequence.Variables>
@@ -81,13 +81,13 @@
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:BrowserScope BrowserType="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[currentBrowser]" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="532,1385" sap2010:WorkflowViewState.IdRef="BrowserScope_1">
+    <ui:BrowserScope BrowserType="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[currentBrowser]" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="532,1484" sap2010:WorkflowViewState.IdRef="BrowserScope_1">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="498,1277" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="498,1376" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -155,7 +155,7 @@
               </ui:InterruptibleWhile>
               <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="412,59" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Project was chosen!!!&quot;]" />
             </Sequence>
-            <ui:MonitorEvents ContinueOnError="{x:Null}" DisplayName="Monitor Events" sap:VirtualizedContainerService.HintSize="456,341" sap2010:WorkflowViewState.IdRef="MonitorEvents_1" RepeatForever="True">
+            <ui:MonitorEvents ContinueOnError="{x:Null}" DisplayName="Monitor Events" sap:VirtualizedContainerService.HintSize="456,341" sap2010:WorkflowViewState.IdRef="MonitorEvents_1">
               <ui:MonitorEvents.Handler>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
@@ -171,10 +171,14 @@
                   </Sequence>
                 </ActivityAction>
               </ui:MonitorEvents.Handler>
+              <ui:MonitorEvents.RepeatForever>
+                <Literal x:TypeArguments="x:Boolean" />
+              </ui:MonitorEvents.RepeatForever>
               <ui:MonitorEvents.Triggers>
                 <ui:ClickTrigger ClippingRegion="{x:Null}" BlockEvent="False" DisplayName="Click Trigger 'Intermediate D3D Window'" EventType="EVENT_ASYNCHRONOUS" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ClickTrigger_1" IncludeChildren="True" InformativeScreenshot="e697dc79c3d7ec230b142a333fc4a7bf" KeyModifiers="None" MouseButton="BTN_LEFT" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' omit:title='TestRPA - Online LaTeX Editor Overleaf - Google Chrome' /&gt;&lt;wnd cls='Intermediate D3D Window' /&gt;" TriggerMode="TriggerDown" />
               </ui:MonitorEvents.Triggers>
             </ui:MonitorEvents>
+            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="456,59" sap2010:WorkflowViewState.IdRef="MessageBox_5" Text="[&quot;Skipped&quot;]" />
           </Sequence>
         </ActivityAction>
       </ui:BrowserScope.Body>
