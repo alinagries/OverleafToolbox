@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="exportDBLP" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1234,3573" sap2010:WorkflowViewState.IdRef="exportDBLP_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="exportDBLP" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1234,3375" sap2010:WorkflowViewState.IdRef="exportDBLP_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -54,7 +54,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="exportDBLP" sap:VirtualizedContainerService.HintSize="630,3408" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="exportDBLP" sap:VirtualizedContainerService.HintSize="630,3210" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:GenericValue" Default="[&quot;&quot;]" Name="query" />
       <Variable x:TypeArguments="ui:Browser" Name="browser" />
@@ -64,13 +64,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="588,3316" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="True" UiBrowser="[browser]" Url="https://dblp.org/">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="588,3118" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="True" UiBrowser="[browser]" Url="https://dblp.org/">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="554,3215" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="554,3017" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="userFinishedSearch">
                 <Variable.Default>
@@ -228,13 +228,13 @@
               </sap:WorkflowViewStateService.ViewState>
             </ui:InterruptibleWhile>
             <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="512,59" sap2010:WorkflowViewState.IdRef="MessageBox_5" Text="[&quot;Starting export.&quot;]" />
-            <ui:GetActiveWindow ApplicationWindow="[activeWindow]" DisplayName="Get Active Window" sap:VirtualizedContainerService.HintSize="512,1403" sap2010:WorkflowViewState.IdRef="GetActiveWindow_1">
+            <ui:GetActiveWindow ApplicationWindow="[activeWindow]" DisplayName="Get Active Window" sap:VirtualizedContainerService.HintSize="512,1205" sap2010:WorkflowViewState.IdRef="GetActiveWindow_1">
               <ui:GetActiveWindow.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="454,1325" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="454,1127" sap2010:WorkflowViewState.IdRef="Sequence_6">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -249,10 +249,9 @@
                         </ui:Target>
                       </ui:UiElementExists.Target>
                     </ui:UiElementExists>
-                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="412,59" sap2010:WorkflowViewState.IdRef="MessageBox_7" Text="[tabsRemaining]" />
-                    <ui:InterruptibleWhile DisplayName="Export BibTex of each tab" sap:VirtualizedContainerService.HintSize="412,988" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_3">
+                    <ui:InterruptibleWhile DisplayName="Export BibTex of each tab" sap:VirtualizedContainerService.HintSize="412,889" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_3">
                       <ui:InterruptibleWhile.Body>
-                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,823" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,724" sap2010:WorkflowViewState.IdRef="Sequence_5">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -319,7 +318,6 @@
                               </ui:Target>
                             </ui:UiElementExists.Target>
                           </ui:UiElementExists>
-                          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_8" Text="[tabsRemaining]" />
                         </Sequence>
                       </ui:InterruptibleWhile.Body>
                       <ui:InterruptibleWhile.Condition>
