@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="exportDBLP" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="864,1938.66666666667" sap2010:WorkflowViewState.IdRef="exportDBLP_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="exportDBLP" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1251,1836" sap2010:WorkflowViewState.IdRef="exportDBLP_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -54,7 +54,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="exportDBLP" sap:VirtualizedContainerService.HintSize="874,1774" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="exportDBLP" sap:VirtualizedContainerService.HintSize="873,1671" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:GenericValue" Default="[&quot;&quot;]" Name="query" />
       <Variable x:TypeArguments="ui:Browser" Name="browser" />
@@ -65,18 +65,18 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InputDialog Options="{x:Null}" DisplayName="Get Paper Title" sap:VirtualizedContainerService.HintSize="832,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Please enter a search string" Title="BibTeX Search">
+    <ui:InputDialog Options="{x:Null}" DisplayName="Get Paper Title" sap:VirtualizedContainerService.HintSize="831,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Please enter a search string" Title="BibTeX Search">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[papertitle]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="832,1550" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="True" UiBrowser="[browser]" Url="https://dblp.org/">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="831,1447" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="True" UiBrowser="[browser]" Url="https://dblp.org/">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="798,1448" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="797,1346" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="allBibTex">
                 <Variable.Default>
@@ -102,7 +102,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT'" sap:VirtualizedContainerService.HintSize="756,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[papertitle]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT'" sap:VirtualizedContainerService.HintSize="755,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[papertitle]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="703310f7-1a3c-42c7-a57e-d386347a5479" InformativeScreenshot="1fd776d096517145d1a3db0a9b576364" Selector="&lt;webctrl name='q' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
@@ -111,7 +111,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find amount of matches" FoundElement="[amountOfMatchesElement]" sap:VirtualizedContainerService.HintSize="756,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
+            <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find amount of matches" FoundElement="[amountOfMatchesElement]" sap:VirtualizedContainerService.HintSize="755,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
               <ui:WaitUiElementAppear.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="27716558-f891-42f2-abff-8e1328d90753" InformativeScreenshot="da8bf4cd3f373de87eec72d756358309" Selector="&lt;webctrl id='completesearch-info-matches' aaname='^(?!found 5,128,988 matches)(found (\d|,)* match)|(no matches)' matching:aaname='regex' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
@@ -120,7 +120,7 @@
                 </ui:Target>
               </ui:WaitUiElementAppear.Target>
             </ui:WaitUiElementAppear>
-            <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Extract String from amount of matches element" sap:VirtualizedContainerService.HintSize="756,96" sap2010:WorkflowViewState.IdRef="GetAttribute_3">
+            <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Extract String from amount of matches element" sap:VirtualizedContainerService.HintSize="755,96" sap2010:WorkflowViewState.IdRef="GetAttribute_3">
               <ui:GetAttribute.Result>
                 <OutArgument x:TypeArguments="x:String">[amountOfMatchesString]</OutArgument>
               </ui:GetAttribute.Result>
@@ -135,10 +135,10 @@
                 </ui:Target>
               </ui:GetAttribute.Target>
             </ui:GetAttribute>
-            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="756,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_7" Text="[amountOfMatchesString]" />
-            <If Condition="[amountOfMatchesString = &quot;found 1 match&quot;]" sap:VirtualizedContainerService.HintSize="756,236" sap2010:WorkflowViewState.IdRef="If_1">
+            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="755,59" sap2010:WorkflowViewState.IdRef="MessageBox_7" Text="[amountOfMatchesString]" />
+            <If Condition="[amountOfMatchesString = &quot;found 1 match&quot;]" sap:VirtualizedContainerService.HintSize="755,234" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke downloadOneBibTeX workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="src\downloadOneBibTeX.xaml">
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke downloadOneBibTeX workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="src\downloadOneBibTeX.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="ui:Browser" x:Key="currentBrowser">[browser]</InArgument>
                     <OutArgument x:TypeArguments="x:String" x:Key="exportedCitations">[allBibTex]</OutArgument>
@@ -146,7 +146,7 @@
                 </ui:InvokeWorkflowFile>
               </If.Then>
               <If.Else>
-                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke downloadMultipleBibTeX workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="src\downloadMultipleBibTeX.xaml">
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke downloadMultipleBibTeX workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="src\downloadMultipleBibTeX.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="ui:Browser" x:Key="currentBrowser">[browser]</InArgument>
                     <OutArgument x:TypeArguments="x:String" x:Key="exportedCitations">[allBibTex]</OutArgument>
@@ -154,17 +154,16 @@
                 </ui:InvokeWorkflowFile>
               </If.Else>
             </If>
-            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Show to be inserted citations" sap:VirtualizedContainerService.HintSize="756,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_6" Text="[allBibTex]" />
-            <ui:MessageBox Caption="{x:Null}" Buttons="YesNo" ChosenButton="[copyToOverleafSelection]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="756,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_8" Text="[&quot;Downloded BibTeX File in your Downloads Folder. Do you want me to copy it in your Overleaf?&quot;]" TopMost="True" />
-            <If Condition="[copyToOverleafSelection = &quot;Yes&quot;]" sap:VirtualizedContainerService.HintSize="756,328" sap2010:WorkflowViewState.IdRef="If_2">
+            <ui:MessageBox Caption="{x:Null}" Buttons="YesNo" ChosenButton="[copyToOverleafSelection]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="755,59" sap2010:WorkflowViewState.IdRef="MessageBox_8" Text="[&quot;Downloded BibTeX File in your Downloads Folder. Do you want me to copy it in your Overleaf?&quot;]" TopMost="True" />
+            <If Condition="[copyToOverleafSelection = &quot;Yes&quot;]" sap:VirtualizedContainerService.HintSize="755,326" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="376,178.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <Sequence sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_8">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke copyToOverleaf workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="src\copyToOverleaf.xaml">
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke copyToOverleaf workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="src\copyToOverleaf.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="bibTeXText">[allBibTex]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
@@ -172,7 +171,7 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_9" Text="[&quot;Thanks for using our tool. Hope we see you soon.&quot;]" />
+                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_9" Text="[&quot;Thanks for using our tool. Hope we see you soon.&quot;]" />
               </If.Else>
             </If>
           </Sequence>
