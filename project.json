@@ -4,6 +4,7 @@
   "main": "src\\ChooseFeature.xaml",
   "dependencies": {
     "BalaReva.ZipUnzip.Activities": "[2019.4.1]",
+    "CheckboxList.Mvc.FB": "[1.0.0]",
     "CuteAnt.Text.RegularExpressions": "[2.1.0-rc1-180512-01]",
     "System.Text.RegularExpressions": "[4.3.1]",
     "UiPath.Excel.Activities": "[2.8.4-preview]",
@@ -11,7 +12,8 @@
     "UiPath.System.Activities": "[20.4.0]",
     "UiPath.Testing.Activities": "[1.0.0]",
     "UiPath.UIAutomation.Activities": "[20.4.1-preview]",
-    "UiPath.WebAPI.Activities": "[1.4.5]"
+    "UiPath.WebAPI.Activities": "[1.4.5]",
+    "Zebble.CheckBox": "[1.22.115]"
   },
   "webServices": [],
   "schemaVersion": "4.0",
