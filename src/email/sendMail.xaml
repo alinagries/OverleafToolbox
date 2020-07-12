@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,2690</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1251,2536</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>sendMail_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -57,20 +57,15 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="sendMail" sap:VirtualizedContainerService.HintSize="939,2401" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="sendMail" sap:VirtualizedContainerService.HintSize="939,2371" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="emailadress" />
       <Variable x:TypeArguments="x:String" Name="emaillink" />
       <Variable x:TypeArguments="x:String" Name="subject" />
       <Variable x:TypeArguments="x:String" Name="preferedEmail" />
-      <Variable x:TypeArguments="x:Boolean" Name="usedThunderbird">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Boolean" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="usedThunderbird" />
       <Variable x:TypeArguments="ui:UiElement" Name="explorerAdressBar" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -99,37 +94,31 @@
         <InArgument x:TypeArguments="x:String">["mailto:"+emailadress + "?subject="+subject]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="897,419" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="True" Url="[emaillink]">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="897,389" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="True" Url="[emaillink]">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="418,318" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,288" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Ignorierte Aktivitäten" sap:VirtualizedContainerService.HintSize="376,226" sap2010:WorkflowViewState.IdRef="Sequence_4">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DelayBetweenKeys="0" DisplayName="Type Into 'Intermediate D3D Window'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[emaillink+ &quot;[k(enter)]&quot;]">
-                <ui:TypeInto.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a59c7ac9-1c73-42f3-a776-05b68c367ed6" InformativeScreenshot="22eea77bb344a2a484f103c1d9e30b2c" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' /&gt;&lt;wnd cls='Intermediate D3D Window' /&gt;">
-                    <ui:Target.TimeoutMS>
-                      <InArgument x:TypeArguments="x:Int32" />
-                    </ui:Target.TimeoutMS>
-                    <ui:Target.WaitForReady>
-                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                    </ui:Target.WaitForReady>
-                  </ui:Target>
-                </ui:TypeInto.Target>
-              </ui:TypeInto>
-            </Sequence>
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DelayBetweenKeys="0" DisplayName="use mailTo: to send the email" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[emaillink+ &quot;[k(enter)]&quot;]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a59c7ac9-1c73-42f3-a776-05b68c367ed6" InformativeScreenshot="22eea77bb344a2a484f103c1d9e30b2c" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' /&gt;&lt;wnd cls='Intermediate D3D Window' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+            <ui:CloseTab Browser="{x:Null}" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="CloseTab_1" />
           </Sequence>
         </ActivityAction>
       </ui:OpenBrowser.Body>
@@ -176,7 +165,7 @@
               </ui:Target>
             </ui:Click.Target>
           </ui:Click>
-          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'Edit'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_9" Text="[pdf.FullName]">
+          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Select downloaded file" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_9" Text="[pdf.FullName]">
             <ui:TypeInto.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="addf4921-39de-4f15-a1a3-f7181fa46705" InformativeScreenshot="7248914e9892d213d18409f12b0e090e" Selector="&lt;wnd app='thunderbird.exe' cls='#32770' title='Datei(en) als Anhang anfügen' /&gt;&lt;wnd ctrlid='1148' /&gt;">
                 <ui:Target.TimeoutMS>
