@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="exportCitavi" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1234,2407" sap2010:WorkflowViewState.IdRef="exportCitavi_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="exportCitavi" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1251,2596" sap2010:WorkflowViewState.IdRef="exportCitavi_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -52,7 +52,10 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="exportCitavi" sap:VirtualizedContainerService.HintSize="518,2242" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="exportCitavi" sap:VirtualizedContainerService.HintSize="518,2431" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="allBibTeX" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -72,11 +75,7 @@
             </ActivityAction.Argument>
             <Sequence DisplayName="Navigate to Export" sap:VirtualizedContainerService.HintSize="376,344" sap2010:WorkflowViewState.IdRef="Sequence_5">
               <Sequence.Variables>
-                <Variable x:TypeArguments="x:Int32" Name="i">
-                  <Variable.Default>
-                    <Literal x:TypeArguments="x:Int32" />
-                  </Variable.Default>
-                </Variable>
+                <Variable x:TypeArguments="x:Int32" Default="0" Name="i" />
               </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -274,5 +273,17 @@
         </ui:WindowScope.Body>
       </ui:WindowScope>
     </Sequence>
+    <ui:GetFromClipboard TimeoutMS="{x:Null}" DisplayName="Get From Clipboard" sap:VirtualizedContainerService.HintSize="476,22" sap2010:WorkflowViewState.IdRef="GetFromClipboard_1">
+      <ui:GetFromClipboard.Result>
+        <OutArgument x:TypeArguments="x:String">[allBibTeX]</OutArgument>
+      </ui:GetFromClipboard.Result>
+    </ui:GetFromClipboard>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke copyToOverleaf workflow" sap:VirtualizedContainerService.HintSize="476,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="src\citation\copyToOverleaf.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="bibTeXText">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="allBibTeX" />
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
   </Sequence>
 </Activity>
