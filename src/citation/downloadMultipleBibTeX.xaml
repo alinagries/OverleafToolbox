@@ -1,12 +1,14 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="downloadMultipleBibTeX" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="downloadMultipleBibTeX" this:downloadMultipleBibTeX.shouldDownload="False" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="currentBrowser" Type="InArgument(ui:Browser)" />
-    <x:Property Name="exportedCitations" Type="OutArgument(x:String)" />
+    <x:Property Name="exportedCitations" Type="InOutArgument(scg:ICollection(x:String))" />
+    <x:Property Name="shouldDownload" Type="InArgument(x:Boolean)" />
+    <x:Property Name="allDownloadedFiles" Type="InOutArgument(scg:ICollection(si:FileInfo))" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1251,2826</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1251,2706</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>downloadMultipleBibTeX_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -59,21 +61,22 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="downloadMultipleBibTeX" sap:VirtualizedContainerService.HintSize="676,2660" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="downloadMultipleBibTeX" sap:VirtualizedContainerService.HintSize="676,2541" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope BrowserType="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[currentBrowser]" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="634,2568" sap2010:WorkflowViewState.IdRef="BrowserScope_1">
+    <ui:BrowserScope BrowserType="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[currentBrowser]" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="634,2449" sap2010:WorkflowViewState.IdRef="BrowserScope_1">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Wait for user to finish and then export all BibTeX" sap:VirtualizedContainerService.HintSize="600,2460" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Wait for user to finish and then export all BibTeX" sap:VirtualizedContainerService.HintSize="600,2341" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -82,11 +85,7 @@
             <Sequence DisplayName="Let user select all BibTeX" sap:VirtualizedContainerService.HintSize="558,932" sap2010:WorkflowViewState.IdRef="Sequence_5">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="titleString" />
-                <Variable x:TypeArguments="x:Boolean" Name="userFinishedSelection">
-                  <Variable.Default>
-                    <Literal x:TypeArguments="x:Boolean" />
-                  </Variable.Default>
-                </Variable>
+                <Variable x:TypeArguments="x:Boolean" Default="False" Name="userFinishedSelection" />
               </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -97,9 +96,6 @@
               <ui:InterruptibleWhile DisplayName="wait for user to finish selection" sap:VirtualizedContainerService.HintSize="516,741" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
                 <ui:InterruptibleWhile.Body>
                   <Sequence DisplayName="retrieve and check title" sap:VirtualizedContainerService.HintSize="480,576" sap2010:WorkflowViewState.IdRef="Sequence_2">
-                    <Sequence.Variables>
-                      <Variable x:TypeArguments="ui:Matches" Name="matchingTitles" />
-                    </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -156,13 +152,9 @@
                 </sap:WorkflowViewStateService.ViewState>
               </ui:InterruptibleWhile>
             </Sequence>
-            <Sequence DisplayName="export citation from each tab" sap:VirtualizedContainerService.HintSize="558,1396" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <Sequence DisplayName="export citation from each tab" sap:VirtualizedContainerService.HintSize="558,1277" sap2010:WorkflowViewState.IdRef="Sequence_7">
               <Sequence.Variables>
-                <Variable x:TypeArguments="x:Boolean" Name="tabsRemaining">
-                  <Variable.Default>
-                    <Literal x:TypeArguments="x:Boolean" />
-                  </Variable.Default>
-                </Variable>
+                <Variable x:TypeArguments="x:Boolean" Default="False" Name="tabsRemaining" />
                 <Variable x:TypeArguments="ui:Window" Name="activeWindow" />
               </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
@@ -171,20 +163,15 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="490,59" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Starting export.&quot;]" />
-              <ui:GetActiveWindow ApplicationWindow="[activeWindow]" DisplayName="Get the current tab" sap:VirtualizedContainerService.HintSize="490,1205" sap2010:WorkflowViewState.IdRef="GetActiveWindow_1">
+              <ui:GetActiveWindow ApplicationWindow="[activeWindow]" DisplayName="Get the current tab" sap:VirtualizedContainerService.HintSize="490,1086" sap2010:WorkflowViewState.IdRef="GetActiveWindow_1">
                 <ui:GetActiveWindow.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="454,1127" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="454,1008" sap2010:WorkflowViewState.IdRef="Sequence_4">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:String" Name="aBibTeX">
-                          <Variable.Default>
-                            <Literal x:TypeArguments="x:String" Value="" />
-                          </Variable.Default>
-                        </Variable>
-                        <Variable x:TypeArguments="x:String" Name="allBibTeX">
                           <Variable.Default>
                             <Literal x:TypeArguments="x:String" Value="" />
                           </Variable.Default>
@@ -195,7 +182,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:UiElementExists DisplayName="Element Exists 'PRE'" Exists="[tabsRemaining]" sap:VirtualizedContainerService.HintSize="412,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                      <ui:UiElementExists DisplayName="wait until entry is loaded" Exists="[tabsRemaining]" sap:VirtualizedContainerService.HintSize="412,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
                         <ui:UiElementExists.Target>
                           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5bdd7155-234f-486c-951a-dc120f644d12" InformativeScreenshot="0f984f503ce6a811f7beadfd257c953f" Selector="&lt;html app='chrome.exe' /&gt;&lt;webctrl class='verbatim select-on-click' parentid='bibtex-section' /&gt;" TimeoutMS="3000">
                             <ui:Target.WaitForReady>
@@ -204,54 +191,32 @@
                           </ui:Target>
                         </ui:UiElementExists.Target>
                       </ui:UiElementExists>
-                      <ui:InterruptibleWhile DisplayName="Export BibTex of each tab" sap:VirtualizedContainerService.HintSize="412,889" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
+                      <ui:InterruptibleWhile DisplayName="Export BibTex of each tab" sap:VirtualizedContainerService.HintSize="412,770" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
                         <ui:InterruptibleWhile.Body>
-                          <Sequence DisplayName="Click and copy the entry into a string" sap:VirtualizedContainerService.HintSize="376,724" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                          <Sequence DisplayName="put entry into collection" sap:VirtualizedContainerService.HintSize="376,605" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="si:FileInfo" Name="aDownloadedFile" />
+                            </Sequence.Variables>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click and select BibTex" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
-                              <ui:Click.CursorPosition>
-                                <ui:CursorPosition Position="Center">
-                                  <ui:CursorPosition.OffsetX>
-                                    <InArgument x:TypeArguments="x:Int32" />
-                                  </ui:CursorPosition.OffsetX>
-                                  <ui:CursorPosition.OffsetY>
-                                    <InArgument x:TypeArguments="x:Int32" />
-                                  </ui:CursorPosition.OffsetY>
-                                </ui:CursorPosition>
-                              </ui:Click.CursorPosition>
-                              <ui:Click.Target>
-                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="05bee2eb-5716-4b29-a3e9-66de64c180bf" InformativeScreenshot="0f984f503ce6a811f7beadfd257c953f" Selector="&lt;html app='chrome.exe' /&gt;&lt;webctrl class='verbatim select-on-click' parentid='bibtex-section' /&gt;">
-                                  <ui:Target.TimeoutMS>
-                                    <InArgument x:TypeArguments="x:Int32" />
-                                  </ui:Target.TimeoutMS>
-                                  <ui:Target.WaitForReady>
-                                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                                  </ui:Target.WaitForReady>
-                                </ui:Target>
-                              </ui:Click.Target>
-                            </ui:Click>
-                            <ui:CopySelectedText SendWindowMessages="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Copy Selected Text" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="CopySelectedText_1">
-                              <ui:CopySelectedText.Result>
-                                <OutArgument x:TypeArguments="x:String">[aBibTex]</OutArgument>
-                              </ui:CopySelectedText.Result>
-                            </ui:CopySelectedText>
-                            <ui:GetFromClipboard TimeoutMS="{x:Null}" DisplayName="Get From Clipboard" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="GetFromClipboard_1">
-                              <ui:GetFromClipboard.Result>
-                                <OutArgument x:TypeArguments="x:String">[aBibTex]</OutArgument>
-                              </ui:GetFromClipboard.Result>
-                            </ui:GetFromClipboard>
-                            <Assign DisplayName="Append entry to other citations" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[exportedCitations]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">[exportedCitations +Constants.vbCrLf+ aBibTex]</InArgument>
-                              </Assign.Value>
-                            </Assign>
+                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke downloadEntry workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="src\citation\downloadEntry.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <InArgument x:TypeArguments="x:Boolean" x:Key="shouldDownloadFile">
+                                  <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="shouldDownload" />
+                                </InArgument>
+                                <OutArgument x:TypeArguments="si:FileInfo" x:Key="downloadedFile">
+                                  <mva:VisualBasicReference x:TypeArguments="si:FileInfo" ExpressionText="aDownloadedFile" />
+                                </OutArgument>
+                                <OutArgument x:TypeArguments="x:String" x:Key="citationString">
+                                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="aBibTeX" />
+                                </OutArgument>
+                              </ui:InvokeWorkflowFile.Arguments>
+                            </ui:InvokeWorkflowFile>
+                            <AddToCollection x:TypeArguments="x:String" Collection="[exportedCitations]" DisplayName="Add String To Collection" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[aBibTeX]" />
+                            <AddToCollection x:TypeArguments="si:FileInfo" Collection="[allDownloadedFiles]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_4" Item="[aDownloadedFile]" />
                             <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Close current tab" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="w" KeyModifiers="Ctrl">
                               <ui:SendHotkey.Target>
                                 <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[activeWindow]" Id="fd044410-9b44-4114-aec1-2ccf03f7e86b">
