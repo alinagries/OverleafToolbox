@@ -1,11 +1,11 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="exportCitavi" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="allBibTex" Type="OutArgument(x:String)" />
+    <x:Property Name="allBibTeX" Type="OutArgument(scg:ICollection(x:String))" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1251,2469</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1251,2668</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>exportCitavi_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -60,7 +60,14 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="exportCitavi" sap:VirtualizedContainerService.HintSize="518,2304" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="exportCitavi" sap:VirtualizedContainerService.HintSize="518,2503" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="allBibTeXString">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">Default</Literal>
+        </Variable.Default>
+      </Variable>
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -92,7 +99,7 @@
                   <ui:CursorPosition OffsetX="16" OffsetY="7" Position="TopLeft" />
                 </ui:Click.CursorPosition>
                 <ui:Click.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e3293432-ffc1-44a7-9934-8e25d2c8a956" InformativeScreenshot="208e44fc0b4845e8a93d51894a737c43" Selector="&lt;wnd ctrlname='_MainForm_Toolbars_Dock_Area_Top' /&gt;&lt;ctrl name='Aguirre, Rodriguez 2017 – Automation of a Business Process' role='grouping' /&gt;&lt;ctrl name='Toolbar' role='menu bar' /&gt;&lt;ctrl idx='1' name='Datei' role='menu item' /&gt;">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e3293432-ffc1-44a7-9934-8e25d2c8a956" InformativeScreenshot="208e44fc0b4845e8a93d51894a737c43" Selector="&lt;wnd ctrlname='_MainForm_Toolbars_Dock_Area_Top' /&gt;&lt;ctrl omit:name='Aguirre, Rodriguez 2017 – Automation of a Business Process' role='grouping' /&gt;&lt;ctrl name='Toolbar' role='menu bar' /&gt;&lt;ctrl idx='1' name='Datei' role='menu item' /&gt;">
                     <ui:Target.TimeoutMS>
                       <InArgument x:TypeArguments="x:Int32" />
                     </ui:Target.TimeoutMS>
@@ -280,8 +287,17 @@
     </Sequence>
     <ui:GetFromClipboard TimeoutMS="{x:Null}" DisplayName="Get From Clipboard" sap:VirtualizedContainerService.HintSize="476,22" sap2010:WorkflowViewState.IdRef="GetFromClipboard_1">
       <ui:GetFromClipboard.Result>
-        <OutArgument x:TypeArguments="x:String">[allBibTeX]</OutArgument>
+        <OutArgument x:TypeArguments="x:String">[allBibTeXString]</OutArgument>
       </ui:GetFromClipboard.Result>
     </ui:GetFromClipboard>
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="476,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[allBibTeXString]" />
+    <Assign sap:VirtualizedContainerService.HintSize="476,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:ICollection(x:String)">[allBibTeX]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:ICollection(x:String)">[allBibTeXString.Split({"@"}, StringSplitOptions.None)]</InArgument>
+      </Assign.Value>
+    </Assign>
   </Sequence>
 </Activity>

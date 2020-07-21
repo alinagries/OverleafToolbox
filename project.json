@@ -42,6 +42,11 @@
         "editingStatus": "InProgress",
         "testCaseId": "15ef285a-a05c-4ffd-b528-635c7d5c48e6",
         "fileName": "tests\\TestIncreasesCommitCount.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "2faf25d1-333c-4729-a370-b0eb5617e42e",
+        "fileName": "tests\\testExportingSingleDBLP.xaml"
       }
     ]
   },
