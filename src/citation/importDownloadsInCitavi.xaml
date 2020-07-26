@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1251,3674</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1251,3782</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>importDownloadsInCitavi_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -60,7 +60,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="importDownloadsInCitavi" sap:VirtualizedContainerService.HintSize="580,3509" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="importDownloadsInCitavi" sap:VirtualizedContainerService.HintSize="580,3617" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Window" Name="openedExplorer" />
     </Sequence.Variables>
@@ -336,5 +336,6 @@
         </ActivityAction>
       </ui:WindowScope.Body>
     </ui:WindowScope>
+    <ui:CloseWindow Selector="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Close Explorer" sap:VirtualizedContainerService.HintSize="538,68" sap2010:WorkflowViewState.IdRef="CloseWindow_1" UseWindow="[openedExplorer]" WaitForReady="INTERACTIVE" />
   </Sequence>
 </Activity>
