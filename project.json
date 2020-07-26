@@ -7,6 +7,7 @@
     "CheckboxList.Mvc.FB": "[1.0.0]",
     "CuteAnt.Text.RegularExpressions": "[2.1.0-rc1-180512-01]",
     "System.Text.RegularExpressions": "[4.3.1]",
+    "UiPath.Credentials.Activities": "[1.1.6479.13204]",
     "UiPath.Excel.Activities": "[2.8.4-preview]",
     "UiPath.Mail.Activities": "[1.8.4-preview]",
     "UiPath.System.Activities": "[20.4.0]",
