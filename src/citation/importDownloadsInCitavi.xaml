@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1251,3782</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1251,3767</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>importDownloadsInCitavi_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -60,7 +60,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="importDownloadsInCitavi" sap:VirtualizedContainerService.HintSize="580,3617" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="importDownloadsInCitavi" sap:VirtualizedContainerService.HintSize="580,3602" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Window" Name="openedExplorer" />
     </Sequence.Variables>
@@ -197,13 +197,13 @@
         </ActivityAction>
       </ui:WindowScope.Body>
     </ui:WindowScope>
-    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="This is written after the example at https://www.uipath.com/kb-articles/how-to-automate-drag-and-drop" DisplayName="Attach to Explorer" sap:VirtualizedContainerService.HintSize="538,760" sap2010:WorkflowViewState.IdRef="WindowScope_9" Window="[openedExplorer]">
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="This is written after the example at https://www.uipath.com/kb-articles/how-to-automate-drag-and-drop" DisplayName="Attach to Explorer" sap:VirtualizedContainerService.HintSize="538,745" sap2010:WorkflowViewState.IdRef="WindowScope_9" Window="[openedExplorer]">
       <ui:WindowScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="376,610" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <Sequence sap:VirtualizedContainerService.HintSize="376,595" sap2010:WorkflowViewState.IdRef="Sequence_14">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -240,7 +240,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:Hover DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateHover="{x:Null}" sap2010:Annotation.AnnotationText="The Position of this hover needs to be slighlty off-center. Otherwise the click and the hover are in the same space and thus the explorer wont be bothered to start the dragging" DisplayName="Hover 'editable text  Name'" sap:VirtualizedContainerService.HintSize="334,178" sap2010:WorkflowViewState.IdRef="Hover_2">
+            <ui:Hover DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateHover="{x:Null}" sap2010:Annotation.AnnotationText="The Position of this hover needs to be slighlty different from the click's position. Otherwise the explorer wont be bothered to start the dragging." DisplayName="Hover 'editable text  Name'" sap:VirtualizedContainerService.HintSize="334,163" sap2010:WorkflowViewState.IdRef="Hover_2">
               <ui:Hover.CursorPosition>
                 <ui:CursorPosition Position="TopRight">
                   <ui:CursorPosition.OffsetX>
