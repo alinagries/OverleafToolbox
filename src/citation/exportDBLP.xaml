@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1251,1504</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1251,2287</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>exportDBLP_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -64,7 +64,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="exportDBLP" sap:VirtualizedContainerService.HintSize="831,1508" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="exportDBLP" sap:VirtualizedContainerService.HintSize="831,2122" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:GenericValue" Default="[&quot;&quot;]" Name="query" />
       <Variable x:TypeArguments="ui:Browser" Name="browser" />
@@ -101,16 +101,8 @@
                   <Literal x:TypeArguments="x:String" Value="" />
                 </Variable.Default>
               </Variable>
-              <Variable x:TypeArguments="x:Boolean" Name="shouldDownload">
-                <Variable.Default>
-                  <Literal x:TypeArguments="x:Boolean" />
-                </Variable.Default>
-              </Variable>
-              <Variable x:TypeArguments="x:String" Name="shouldDownloadSelection">
-                <Variable.Default>
-                  <Literal x:TypeArguments="x:String">No</Literal>
-                </Variable.Default>
-              </Variable>
+              <Variable x:TypeArguments="x:Boolean" Default="False" Name="shouldDownload" />
+              <Variable x:TypeArguments="x:String" Default="No" Name="shouldDownloadSelection" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -189,36 +181,20 @@
               <If.Then>
                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke downloadOneBibTeX workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="src/citation/downloadOneBibTeX.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="ui:Browser" x:Key="currentBrowser">
-                      <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="browser" />
-                    </InArgument>
-                    <InOutArgument x:TypeArguments="scg:ICollection(x:String)" x:Key="exportedCitations">
-                      <mva:VisualBasicReference x:TypeArguments="scg:ICollection(x:String)" ExpressionText="allBibTex" />
-                    </InOutArgument>
-                    <InArgument x:TypeArguments="x:Boolean" x:Key="shouldDownload">
-                      <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="shouldDownload" />
-                    </InArgument>
-                    <InOutArgument x:TypeArguments="scg:ICollection(si:FileInfo)" x:Key="allDownloadedFiles">
-                      <mva:VisualBasicReference x:TypeArguments="scg:ICollection(si:FileInfo)" ExpressionText="allDownloadedFiles" />
-                    </InOutArgument>
+                    <InArgument x:TypeArguments="ui:Browser" x:Key="currentBrowser">[browser]</InArgument>
+                    <InOutArgument x:TypeArguments="scg:ICollection(x:String)" x:Key="exportedCitations">[allBibTex]</InOutArgument>
+                    <InArgument x:TypeArguments="x:Boolean" x:Key="shouldDownload">[shouldDownload]</InArgument>
+                    <InOutArgument x:TypeArguments="scg:ICollection(si:FileInfo)" x:Key="allDownloadedFiles">[allDownloadedFiles]</InOutArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </If.Then>
               <If.Else>
                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke downloadMultipleBibTeX workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="src/citation/downloadMultipleBibTeX.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="ui:Browser" x:Key="currentBrowser">
-                      <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="browser" />
-                    </InArgument>
-                    <InOutArgument x:TypeArguments="scg:ICollection(x:String)" x:Key="exportedCitations">
-                      <mva:VisualBasicReference x:TypeArguments="scg:ICollection(x:String)" ExpressionText="allBibTex" />
-                    </InOutArgument>
-                    <InArgument x:TypeArguments="x:Boolean" x:Key="shouldDownload">
-                      <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="shouldDownload" />
-                    </InArgument>
-                    <InOutArgument x:TypeArguments="scg:ICollection(si:FileInfo)" x:Key="allDownloadedFiles">
-                      <mva:VisualBasicReference x:TypeArguments="scg:ICollection(si:FileInfo)" ExpressionText="allDownloadedFiles" />
-                    </InOutArgument>
+                    <InArgument x:TypeArguments="ui:Browser" x:Key="currentBrowser">[browser]</InArgument>
+                    <InOutArgument x:TypeArguments="scg:ICollection(x:String)" x:Key="exportedCitations">[allBibTex]</InOutArgument>
+                    <InArgument x:TypeArguments="x:Boolean" x:Key="shouldDownload">[shouldDownload]</InArgument>
+                    <InOutArgument x:TypeArguments="scg:ICollection(si:FileInfo)" x:Key="allDownloadedFiles">[allDownloadedFiles]</InOutArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </If.Else>
@@ -227,5 +203,35 @@
         </ActivityAction>
       </ui:OpenBrowser.Body>
     </ui:OpenBrowser>
+    <If Condition="[allDownloadedFiles.Count() &lt;&gt; 0]" sap:VirtualizedContainerService.HintSize="789,574" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="535,426" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="shouldImportToCitavi">
+              <Variable.Default>
+                <Literal x:TypeArguments="x:String">No</Literal>
+              </Variable.Default>
+            </Variable>
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MessageBox Buttons="YesNo" Caption="Import to Citavi" ChosenButton="[shouldImportToCitavi]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="493,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Should the downloaded files be importet to citavi?&quot;]" TopMost="True" />
+          <If Condition="[shouldImportToCitavi =&quot;Yes&quot;]" sap:VirtualizedContainerService.HintSize="493,235" sap2010:WorkflowViewState.IdRef="If_3">
+            <If.Then>
+              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke importDownloadsInCitavi workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="src\citation\importDownloadsInCitavi.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="scg:ICollection(si:FileInfo)" x:Key="allDownloadedFiles">
+                    <mva:VisualBasicValue x:TypeArguments="scg:ICollection(si:FileInfo)" ExpressionText="allDownloadedFiles" />
+                  </InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+            </If.Then>
+          </If>
+        </Sequence>
+      </If.Then>
+    </If>
   </Sequence>
 </Activity>

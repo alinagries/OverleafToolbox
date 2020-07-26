@@ -50,6 +50,7 @@
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="importBibTex" sap:VirtualizedContainerService.HintSize="700,823" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -116,12 +117,8 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke exportDBLP workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="src/citation/exportDBLP.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InOutArgument x:TypeArguments="scg:ICollection(x:String)" x:Key="allBibTex">
-                  <mva:VisualBasicReference x:TypeArguments="scg:ICollection(x:String)" ExpressionText="allBibTex" />
-                </InOutArgument>
-                <InOutArgument x:TypeArguments="scg:ICollection(si:FileInfo)" x:Key="allDownloadedFiles">
-                  <mva:VisualBasicReference x:TypeArguments="scg:ICollection(si:FileInfo)" ExpressionText="allDownloadedFiles" />
-                </InOutArgument>
+                <InOutArgument x:TypeArguments="scg:ICollection(x:String)" x:Key="allBibTex">[allBibTex]</InOutArgument>
+                <InOutArgument x:TypeArguments="scg:ICollection(si:FileInfo)" x:Key="allDownloadedFiles">[allDownloadedFiles]</InOutArgument>
               </ui:InvokeWorkflowFile.Arguments>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -160,9 +157,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke copyToOverleaf workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="src\citation\copyToOverleaf.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="scg:ICollection(x:String)" x:Key="allBibTeX">
-                              <mva:VisualBasicValue x:TypeArguments="scg:ICollection(x:String)" ExpressionText="allBibTex" />
-                            </InArgument>
+                            <InArgument x:TypeArguments="scg:ICollection(x:String)" x:Key="allBibTeX">[allBibTex]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -198,9 +193,7 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke exportCitavi workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="src\citation\exportCitavi.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <OutArgument x:TypeArguments="scg:ICollection(x:String)" x:Key="allBibTeX">
-                  <mva:VisualBasicReference x:TypeArguments="scg:ICollection(x:String)" ExpressionText="allBibTex" />
-                </OutArgument>
+                <OutArgument x:TypeArguments="scg:ICollection(x:String)" x:Key="allBibTeX">[allBibTex]</OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
