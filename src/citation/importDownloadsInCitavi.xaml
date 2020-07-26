@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1251,3767</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1251,4017</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>importDownloadsInCitavi_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -60,7 +60,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="importDownloadsInCitavi" sap:VirtualizedContainerService.HintSize="580,3602" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="importDownloadsInCitavi" sap:VirtualizedContainerService.HintSize="504,3852" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Window" Name="openedExplorer" />
     </Sequence.Variables>
@@ -69,7 +69,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenApplication Arguments="{x:Null}" TimeoutMS="{x:Null}" WorkingDirectory="{x:Null}" ApplicationWindow="[openedExplorer]" DisplayName="Open Application 'explorer.exe  Explorer'" FileName="C:\Windows\explorer.exe" sap:VirtualizedContainerService.HintSize="538,161" sap2010:WorkflowViewState.IdRef="OpenApplication_2" InformativeScreenshot="e5a68e0527e6d4f06b142a0042226555" Selector="&lt;wnd app='explorer.exe' cls='CabinetWClass' title='Explorer' /&gt;">
+    <ui:OpenApplication Arguments="{x:Null}" TimeoutMS="{x:Null}" WorkingDirectory="{x:Null}" ApplicationWindow="[openedExplorer]" DisplayName="Open Application 'explorer.exe  Explorer'" FileName="C:\Windows\explorer.exe" sap:VirtualizedContainerService.HintSize="462,161" sap2010:WorkflowViewState.IdRef="OpenApplication_2" InformativeScreenshot="e5a68e0527e6d4f06b142a0042226555" Selector="&lt;wnd app='explorer.exe' cls='CabinetWClass' title='Explorer' /&gt;">
       <ui:OpenApplication.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -78,20 +78,37 @@
         </ActivityAction>
       </ui:OpenApplication.Body>
     </ui:OpenApplication>
-    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Attach to Explorer" sap:VirtualizedContainerService.HintSize="538,1336" sap2010:WorkflowViewState.IdRef="WindowScope_7" Window="[openedExplorer]">
-      <ui:WindowScope.Body>
-        <ActivityAction x:TypeArguments="x:Object">
+    <ui:ForEach x:TypeArguments="si:FileInfo" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="462,383" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[allDownloadedFiles]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="si:FileInfo">
           <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+            <DelegateInArgument x:TypeArguments="si:FileInfo" Name="file" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="504,1228" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence DisplayName="Hauptteil" sap:VirtualizedContainerService.HintSize="426,249" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:CreateDirectory ContinueOnError="True" DisplayName="Create temporary Folder" sap:VirtualizedContainerService.HintSize="462,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[&quot;C:\Users\&quot;+Environment.UserName+&quot;\AppData\Local\Temp\RPA&quot;]" />
-            <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Go to temporary folder" sap:VirtualizedContainerService.HintSize="462,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[&quot;C:\Users\&quot;+Environment.UserName+&quot;\AppData\Local\Temp\RPA[k(enter)]&quot;]">
+            <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\&quot;+Environment.UserName+&quot;\AppData\Local\Temp\RPA\&quot;+file.Name]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="False" Path="[file.FullName]" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Attach to Explorer" sap:VirtualizedContainerService.HintSize="462,914" sap2010:WorkflowViewState.IdRef="WindowScope_7" Window="[openedExplorer]">
+      <ui:WindowScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="418,806" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:CreateDirectory ContinueOnError="True" DisplayName="Create temporary Folder" sap:VirtualizedContainerService.HintSize="376,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[&quot;C:\Users\&quot;+Environment.UserName+&quot;\AppData\Local\Temp\RPA&quot;]" />
+            <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Go to temporary folder" sap:VirtualizedContainerService.HintSize="376,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[&quot;C:\Users\&quot;+Environment.UserName+&quot;\AppData\Local\Temp\RPA[k(enter)]&quot;]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="efc42693-a64e-4437-a20d-d5a3d85d06a3" InformativeScreenshot="d583094f4a7bd619528e6a91409ae804" Selector="&lt;wnd app='explorer.exe' cls='CabinetWClass' title='Explorer' /&gt;&lt;wnd cls='ToolbarWindow32' title='Adresse: Schnellzugriff' /&gt;&lt;ctrl name='Adresse: Schnellzugriff' role='tool bar' /&gt;&lt;ctrl name='Alle Speicherorte' role='split button' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
@@ -100,24 +117,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:ForEach x:TypeArguments="si:FileInfo" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="462,382" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[allDownloadedFiles]">
-              <ui:ForEach.Body>
-                <ActivityAction x:TypeArguments="si:FileInfo">
-                  <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="si:FileInfo" Name="file" />
-                  </ActivityAction.Argument>
-                  <Sequence DisplayName="Hauptteil" sap:VirtualizedContainerService.HintSize="426,249" sap2010:WorkflowViewState.IdRef="Sequence_11">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <ui:MoveFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\&quot;+Environment.UserName+&quot;\AppData\Local\Temp\RPA&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="False" Path="[file.FullName]" />
-                  </Sequence>
-                </ActivityAction>
-              </ui:ForEach.Body>
-            </ui:ForEach>
-            <Sequence DisplayName="Position the Explorer" sap:VirtualizedContainerService.HintSize="462,421" sap2010:WorkflowViewState.IdRef="Sequence_13">
+            <Sequence DisplayName="Position the Explorer" sap:VirtualizedContainerService.HintSize="376,421" sap2010:WorkflowViewState.IdRef="Sequence_13">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -157,7 +157,7 @@
         </ActivityAction>
       </ui:WindowScope.Body>
     </ui:WindowScope>
-    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach to Citavi" sap:VirtualizedContainerService.HintSize="538,510" sap2010:WorkflowViewState.IdRef="WindowScope_8" InformativeScreenshot="f1c361d9c0f925a5c20e8a43a123a3a4" Selector="&lt;wnd app='citavi.exe' ctrlname='MainForm' /&gt;">
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach to Citavi" sap:VirtualizedContainerService.HintSize="462,510" sap2010:WorkflowViewState.IdRef="WindowScope_8" InformativeScreenshot="f1c361d9c0f925a5c20e8a43a123a3a4" Selector="&lt;wnd app='citavi.exe' ctrlname='MainForm' /&gt;">
       <ui:WindowScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -197,13 +197,13 @@
         </ActivityAction>
       </ui:WindowScope.Body>
     </ui:WindowScope>
-    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="This is written after the example at https://www.uipath.com/kb-articles/how-to-automate-drag-and-drop" DisplayName="Attach to Explorer" sap:VirtualizedContainerService.HintSize="538,745" sap2010:WorkflowViewState.IdRef="WindowScope_9" Window="[openedExplorer]">
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="This is written after the example at https://www.uipath.com/kb-articles/how-to-automate-drag-and-drop" DisplayName="Attach to Explorer" sap:VirtualizedContainerService.HintSize="462,760" sap2010:WorkflowViewState.IdRef="WindowScope_9" Window="[openedExplorer]">
       <ui:WindowScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="376,595" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <Sequence sap:VirtualizedContainerService.HintSize="376,610" sap2010:WorkflowViewState.IdRef="Sequence_14">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -240,7 +240,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:Hover DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateHover="{x:Null}" sap2010:Annotation.AnnotationText="The Position of this hover needs to be slighlty different from the click's position. Otherwise the explorer wont be bothered to start the dragging." DisplayName="Hover 'editable text  Name'" sap:VirtualizedContainerService.HintSize="334,163" sap2010:WorkflowViewState.IdRef="Hover_2">
+            <ui:Hover DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateHover="{x:Null}" sap2010:Annotation.AnnotationText="The Position of this hover needs to be slighlty different from the click's position. Otherwise the click and the hover are in the same space and thus the explorer wont be bothered to start the dragging" DisplayName="Hover 'editable text  Name'" sap:VirtualizedContainerService.HintSize="334,178" sap2010:WorkflowViewState.IdRef="Hover_2">
               <ui:Hover.CursorPosition>
                 <ui:CursorPosition Position="TopRight">
                   <ui:CursorPosition.OffsetX>
@@ -276,7 +276,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:WindowScope>
-    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach to Citavi" sap:VirtualizedContainerService.HintSize="538,490" sap2010:WorkflowViewState.IdRef="WindowScope_10" InformativeScreenshot="f1c361d9c0f925a5c20e8a43a123a3a4" Selector="&lt;wnd app='citavi.exe' ctrlname='MainForm' /&gt;">
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach to Citavi" sap:VirtualizedContainerService.HintSize="462,490" sap2010:WorkflowViewState.IdRef="WindowScope_10" InformativeScreenshot="f1c361d9c0f925a5c20e8a43a123a3a4" Selector="&lt;wnd app='citavi.exe' ctrlname='MainForm' /&gt;">
       <ui:WindowScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -336,6 +336,16 @@
         </ActivityAction>
       </ui:WindowScope.Body>
     </ui:WindowScope>
-    <ui:CloseWindow Selector="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Close Explorer" sap:VirtualizedContainerService.HintSize="538,68" sap2010:WorkflowViewState.IdRef="CloseWindow_1" UseWindow="[openedExplorer]" WaitForReady="INTERACTIVE" />
+    <ui:ForEach x:TypeArguments="si:FileInfo" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="462,194" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[allDownloadedFiles]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="si:FileInfo">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="si:FileInfo" Name="file" />
+          </ActivityAction.Argument>
+          <ui:Delete ContinueOnError="{x:Null}" DisplayName="Delete the file" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[file.FullName]" />
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+    <ui:CloseWindow Selector="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Close Explorer" sap:VirtualizedContainerService.HintSize="462,68" sap2010:WorkflowViewState.IdRef="CloseWindow_1" UseWindow="[openedExplorer]" WaitForReady="INTERACTIVE" />
   </Sequence>
 </Activity>
