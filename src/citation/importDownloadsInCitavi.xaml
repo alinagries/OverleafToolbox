@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1251,4017</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1251,3964</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>importDownloadsInCitavi_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -60,7 +60,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="importDownloadsInCitavi" sap:VirtualizedContainerService.HintSize="504,3852" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="importDownloadsInCitavi" sap:VirtualizedContainerService.HintSize="504,3799" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Window" Name="openedExplorer" />
     </Sequence.Variables>
@@ -78,6 +78,7 @@
         </ActivityAction>
       </ui:OpenApplication.Body>
     </ui:OpenApplication>
+    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="462,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[&quot;C:\Users\&quot;+Environment.UserName+&quot;\AppData\Local\Temp\RPA&quot;]" />
     <ui:ForEach x:TypeArguments="si:FileInfo" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="462,383" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[allDownloadedFiles]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="si:FileInfo">
@@ -221,7 +222,7 @@
                 </ui:Target>
               </ui:SendHotkey.Target>
             </ui:SendHotkey>
-            <ui:Click AlterIfDisabled="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_DOWN" DelayBefore="1000" DelayMS="1000" DisplayName="Start drag on file" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_19" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_DOWN" DisplayName="Start drag on file" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_19" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -336,16 +337,7 @@
         </ActivityAction>
       </ui:WindowScope.Body>
     </ui:WindowScope>
-    <ui:ForEach x:TypeArguments="si:FileInfo" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="462,194" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[allDownloadedFiles]">
-      <ui:ForEach.Body>
-        <ActivityAction x:TypeArguments="si:FileInfo">
-          <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="si:FileInfo" Name="file" />
-          </ActivityAction.Argument>
-          <ui:Delete ContinueOnError="{x:Null}" DisplayName="Delete the file" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[file.FullName]" />
-        </ActivityAction>
-      </ui:ForEach.Body>
-    </ui:ForEach>
+    <ui:Delete ContinueOnError="{x:Null}" DisplayName="Delete temporary folder" sap:VirtualizedContainerService.HintSize="462,22" sap2010:WorkflowViewState.IdRef="Delete_2" Path="[&quot;C:\Users\&quot;+Environment.UserName+&quot;\AppData\Local\Temp\RPA&quot;]" />
     <ui:CloseWindow Selector="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Close Explorer" sap:VirtualizedContainerService.HintSize="462,68" sap2010:WorkflowViewState.IdRef="CloseWindow_1" UseWindow="[openedExplorer]" WaitForReady="INTERACTIVE" />
   </Sequence>
 </Activity>

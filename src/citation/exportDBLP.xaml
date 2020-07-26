@@ -218,7 +218,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:MessageBox Buttons="YesNo" Caption="Import to Citavi" ChosenButton="[shouldImportToCitavi]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="493,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Should the downloaded files be importet to citavi?&quot;]" TopMost="True" />
+          <ui:MessageBox Buttons="YesNo" Caption="Import to Citavi" ChosenButton="[shouldImportToCitavi]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="493,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Should the downloaded files be imported to citavi?&quot;]" TopMost="True" />
           <If Condition="[shouldImportToCitavi =&quot;Yes&quot;]" sap:VirtualizedContainerService.HintSize="493,235" sap2010:WorkflowViewState.IdRef="If_3">
             <If.Then>
               <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke importDownloadsInCitavi workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="src\citation\importDownloadsInCitavi.xaml">
