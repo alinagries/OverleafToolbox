@@ -66,7 +66,11 @@
   <Sequence DisplayName="loginToGitHub" sap:VirtualizedContainerService.HintSize="1194,1808" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="titleString" />
-      <Variable x:TypeArguments="x:Boolean" Default="False" Name="loggedIn" />
+      <Variable x:TypeArguments="x:Boolean" Name="inLoginScreen">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:Boolean" Value="True" />
+        </Variable.Default>
+      </Variable>
       <Variable x:TypeArguments="x:String" Name="account" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -123,7 +127,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="412,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Please login with your credentials&quot;]" />
-                        <ui:InterruptibleWhile Condition="[Not loggedIn]" DisplayName="wait for user to search" sap:VirtualizedContainerService.HintSize="412,452" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+                        <ui:InterruptibleWhile DisplayName="wait for user to search" sap:VirtualizedContainerService.HintSize="412,452" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
                           <ui:InterruptibleWhile.Body>
                             <Sequence DisplayName="retrieve and check title" sap:VirtualizedContainerService.HintSize="376,287" sap2010:WorkflowViewState.IdRef="Sequence_13">
                               <sap:WorkflowViewStateService.ViewState>
@@ -147,9 +151,12 @@
                                   </ui:Target>
                                 </ui:GetAttribute.Target>
                               </ui:GetAttribute>
-                              <ui:IsMatch BuilderPattern="OnlineLaTeX Editor Overleaf$" DisplayName="User logged in?" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[titleString]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Buchstäblich&quot;,&quot;OperationValue&quot;:&quot;OnlineLaTeX Editor Overleaf$&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Genau&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="GitHub" RegexOption="IgnoreCase" Result="[loggedIn]" />
+                              <ui:IsMatch BuilderPattern="OnlineLaTeX Editor Overleaf$" DisplayName="User logged in?" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[titleString]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Buchstäblich&quot;,&quot;OperationValue&quot;:&quot;OnlineLaTeX Editor Overleaf$&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Genau&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="Sign in to GitHub · GitHub" RegexOption="IgnoreCase" Result="[inLoginScreen]" />
                             </Sequence>
                           </ui:InterruptibleWhile.Body>
+                          <ui:InterruptibleWhile.Condition>
+                            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="inLoginScreen" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
+                          </ui:InterruptibleWhile.Condition>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
