@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1251,1973</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1251,1874</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>loginToGitHub_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -63,7 +63,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="loginToGitHub" sap:VirtualizedContainerService.HintSize="1194,1808" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="loginToGitHub" sap:VirtualizedContainerService.HintSize="1194,1709" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="titleString" />
       <Variable x:TypeArguments="x:Boolean" Name="inLoginScreen">
@@ -78,13 +78,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="1152,1716" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="True" UiBrowser="[githubBrowser]" Url="https://github.com/login">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="1152,1617" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="True" UiBrowser="[githubBrowser]" Url="https://github.com/login">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="1118,1615" sap2010:WorkflowViewState.IdRef="Sequence_12">
+          <Sequence sap:VirtualizedContainerService.HintSize="1118,1516" sap2010:WorkflowViewState.IdRef="Sequence_12">
             <Sequence.Variables>
               <Variable x:TypeArguments="ui:GenericValue" Name="url" />
             </Sequence.Variables>
@@ -105,9 +105,9 @@
                 </ui:Target>
               </ui:GetAttribute.Target>
             </ui:GetAttribute>
-            <If Condition="[url.ToString = &quot;https://github.com/login&quot;]" DisplayName="Check if already logged in" sap:VirtualizedContainerService.HintSize="1076,1387" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[url.ToString = &quot;https://github.com/login&quot;]" DisplayName="Check if already logged in" sap:VirtualizedContainerService.HintSize="1076,1288" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="917,1240" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                <Sequence sap:VirtualizedContainerService.HintSize="917,1141" sap2010:WorkflowViewState.IdRef="Sequence_15">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -118,7 +118,7 @@
                       <OutArgument x:TypeArguments="x:String">[account]</OutArgument>
                     </ui:InputDialog.Result>
                   </ui:InputDialog>
-                  <If Condition="[account = &quot;own account&quot;]" sap:VirtualizedContainerService.HintSize="875,1016" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If Condition="[account = &quot;own account&quot;]" sap:VirtualizedContainerService.HintSize="875,917" sap2010:WorkflowViewState.IdRef="If_2">
                     <If.Then>
                       <Sequence sap:VirtualizedContainerService.HintSize="454,643" sap2010:WorkflowViewState.IdRef="Sequence_14">
                         <sap:WorkflowViewStateService.ViewState>
@@ -167,7 +167,7 @@
                       </Sequence>
                     </If.Then>
                     <If.Else>
-                      <Sequence DisplayName="Login" sap:VirtualizedContainerService.HintSize="376,869" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                      <Sequence DisplayName="Login" sap:VirtualizedContainerService.HintSize="376,770" sap2010:WorkflowViewState.IdRef="Sequence_11">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="username" />
                           <Variable x:TypeArguments="ss:SecureString" Name="password" />
@@ -187,7 +187,7 @@
                             <InArgument x:TypeArguments="x:String">[new System.Net.NetworkCredential(string.Empty, password).Password]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  login_field'" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="True" Text="[username]">
+                        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Enter username" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="True" Text="[username]">
                           <ui:TypeInto.Target>
                             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7e56c6ba-cc57-42b2-b7bd-084e588940f6" InformativeScreenshot="b42021e6c532b73469733a455a93c0ff" Selector="&lt;webctrl id='login_field' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                               <ui:Target.TimeoutMS>
@@ -196,7 +196,7 @@
                             </ui:Target>
                           </ui:TypeInto.Target>
                         </ui:TypeInto>
-                        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" Activate="True" DelayMS="3000" DisplayName="Type Into 'INPUT  password'" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="True" Text="[unpackedPassword]">
+                        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" Activate="True" DelayMS="3000" DisplayName="Enter password" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="True" Text="[unpackedPassword]">
                           <ui:TypeInto.Target>
                             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c961b79e-21b4-47e8-80e5-ba6e24b7a5e3" InformativeScreenshot="cec262b3a7fd7e2b855b688954b582aa" Selector="&lt;webctrl id='password' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                               <ui:Target.TimeoutMS>
@@ -205,8 +205,7 @@
                             </ui:Target>
                           </ui:TypeInto.Target>
                         </ui:TypeInto>
-                        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[unpackedPassword]" />
-                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Sign in" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
                           <ui:Click.CursorPosition>
                             <ui:CursorPosition Position="Center">
                               <ui:CursorPosition.OffsetX>
