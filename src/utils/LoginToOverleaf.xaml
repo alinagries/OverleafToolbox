@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1184,1801.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1251,1777</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>loginToGitHub_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -31,6 +31,7 @@
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Security</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -59,16 +60,13 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="loginToGitHub" sap:VirtualizedContainerService.HintSize="1194,1636.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="loginToGitHub" sap:VirtualizedContainerService.HintSize="1194,1612" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="account" />
-      <Variable x:TypeArguments="x:Boolean" Name="loggedIn">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Boolean" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="loggedIn" />
       <Variable x:TypeArguments="ui:GenericValue" Name="url" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -76,13 +74,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="1152,1544.66666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="True" UiBrowser="[githubBrowser]" Url="https://www.overleaf.com/login">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="1152,1520" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="True" UiBrowser="[githubBrowser]" Url="https://www.overleaf.com/login">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="1118,1442.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_12">
+          <Sequence sap:VirtualizedContainerService.HintSize="1118,1419" sap2010:WorkflowViewState.IdRef="Sequence_12">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -100,33 +98,32 @@
                 </ui:Target>
               </ui:GetAttribute.Target>
             </ui:GetAttribute>
-            <If Condition="[url.ToString = &quot;https://www.overleaf.com/login&quot;]" DisplayName="Check if already logged in" sap:VirtualizedContainerService.HintSize="1076,1214.66666666667" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[url.ToString = &quot;https://www.overleaf.com/login&quot;]" DisplayName="Check if already logged in" sap:VirtualizedContainerService.HintSize="1076,1191" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="918.666666666667,1065.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                <Sequence sap:VirtualizedContainerService.HintSize="917,1044" sap2010:WorkflowViewState.IdRef="Sequence_14">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InputDialog DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="876.666666666667,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Do you want to login by yourself or do you want to login with the bots account?" Options="[{&quot;own account&quot;, &quot;bots account&quot;}]" Title="Your own account or the bots account?">
+                  <ui:InputDialog DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="875,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Do you want to login by yourself or do you want to login with the bots account?" Options="[{&quot;own account&quot;, &quot;bots account&quot;}]" Title="Your own account or the bots account?">
                     <ui:InputDialog.Result>
                       <OutArgument x:TypeArguments="x:String">[account]</OutArgument>
                     </ui:InputDialog.Result>
                   </ui:InputDialog>
-                  <If Condition="[account = &quot;own account&quot;]" sap:VirtualizedContainerService.HintSize="876.666666666667,841.333333333333" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If Condition="[account = &quot;own account&quot;]" sap:VirtualizedContainerService.HintSize="875,820" sap2010:WorkflowViewState.IdRef="If_2">
                     <If.Then>
-                      <Sequence sap:VirtualizedContainerService.HintSize="454.666666666667,645.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                      <Sequence DisplayName="let user use their login" sap:VirtualizedContainerService.HintSize="454,643" sap2010:WorkflowViewState.IdRef="Sequence_16">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="412.666666666667,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Please login with your credentials&quot;]" />
-                        <ui:InterruptibleWhile DisplayName="wait for user to search" sap:VirtualizedContainerService.HintSize="412.666666666667,454.666666666667" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+                        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="412,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Please login with your credentials&quot;]" />
+                        <ui:InterruptibleWhile DisplayName="wait for user to search" sap:VirtualizedContainerService.HintSize="412,452" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
                           <ui:InterruptibleWhile.Body>
-                            <Sequence DisplayName="retrieve and check title" sap:VirtualizedContainerService.HintSize="376,286.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                            <Sequence DisplayName="retrieve and check title" sap:VirtualizedContainerService.HintSize="376,287" sap2010:WorkflowViewState.IdRef="Sequence_15">
                               <Sequence.Variables>
-                                <Variable x:TypeArguments="ui:Matches" Name="matchingTitles" />
                                 <Variable x:TypeArguments="x:String" Name="titleString" />
                               </Sequence.Variables>
                               <sap:WorkflowViewStateService.ViewState>
@@ -150,7 +147,7 @@
                                   </ui:Target>
                                 </ui:GetAttribute.Target>
                               </ui:GetAttribute>
-                              <ui:IsMatch BuilderPattern="OnlineLaTeX Editor Overleaf$" DisplayName="User logged in?" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[titleString]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Buchstäblich&quot;,&quot;OperationValue&quot;:&quot;OnlineLaTeX Editor Overleaf$&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Genau&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="Your Projects - Overleaf, Online LaTeX Editor" RegexOption="IgnoreCase" Result="[loggedIn]" />
+                              <ui:IsMatch BuilderPattern="OnlineLaTeX Editor Overleaf$" DisplayName="User logged in?" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[titleString]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Buchstäblich&quot;,&quot;OperationValue&quot;:&quot;OnlineLaTeX Editor Overleaf$&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Genau&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="Your Projects - Overleaf, Online LaTeX Editor" RegexOption="IgnoreCase" Result="[loggedIn]" />
                             </Sequence>
                           </ui:InterruptibleWhile.Body>
                           <ui:InterruptibleWhile.Condition>
@@ -166,28 +163,30 @@
                       </Sequence>
                     </If.Then>
                     <If.Else>
-                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,692" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                      <Sequence DisplayName="Login with bot account" sap:VirtualizedContainerService.HintSize="376,673" sap2010:WorkflowViewState.IdRef="Sequence_13">
                         <Sequence.Variables>
-                          <Variable x:TypeArguments="x:String" Name="account" />
+                          <Variable x:TypeArguments="x:String" Name="username" />
+                          <Variable x:TypeArguments="x:String" Name="password" />
                         </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
-                          <ui:Click.CursorPosition>
-                            <ui:CursorPosition OffsetX="76" OffsetY="13" Position="TopLeft" />
-                          </ui:Click.CursorPosition>
-                          <ui:Click.Target>
-                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="36412f7d-db2e-46a6-9aab-f9634651616c" InformativeScreenshot="e60350dac3c9bc353dcc5f7e6f021583" Selector="&lt;webctrl name='email' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
-                              <ui:Target.TimeoutMS>
-                                <InArgument x:TypeArguments="x:Int32" />
-                              </ui:Target.TimeoutMS>
-                            </ui:Target>
-                          </ui:Click.Target>
-                        </ui:Click>
-                        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT'" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="True" Text="rpa2020@mail.de">
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke getBotCredentials workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="src\credentials\getBotCredentials.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <OutArgument x:TypeArguments="x:String" x:Key="username">
+                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="username" />
+                            </OutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="password">
+                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="password" />
+                            </OutArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="targetCredential">
+                              <Literal x:TypeArguments="x:String">RPA_OVERLEAF_BOT</Literal>
+                            </InArgument>
+                          </ui:InvokeWorkflowFile.Arguments>
+                        </ui:InvokeWorkflowFile>
+                        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Enter username" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="True" Text="[username]">
                           <ui:TypeInto.Target>
                             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c18a556b-b232-40c6-a0dd-702d3acfcc09" InformativeScreenshot="e60350dac3c9bc353dcc5f7e6f021583" Selector="&lt;webctrl name='email' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                               <ui:Target.TimeoutMS>
@@ -196,7 +195,7 @@
                             </ui:Target>
                           </ui:TypeInto.Target>
                         </ui:TypeInto>
-                        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT'" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" SendWindowMessages="False" SimulateType="True" Text="hallo12345678910">
+                        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Enter password" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" SendWindowMessages="False" SimulateType="True" Text="[password]">
                           <ui:TypeInto.Target>
                             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ab46199e-181d-4bee-89b6-219ee8daea1e" InformativeScreenshot="ec47e2313fa0ffe1239db394c34a6504" Selector="&lt;webctrl name='password' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                               <ui:Target.TimeoutMS>
@@ -205,7 +204,7 @@
                             </ui:Target>
                           </ui:TypeInto.Target>
                         </ui:TypeInto>
-                        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click Login button" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
                           <ui:Click.CursorPosition>
                             <ui:CursorPosition OffsetX="108" OffsetY="11" Position="TopLeft" />
                           </ui:Click.CursorPosition>
