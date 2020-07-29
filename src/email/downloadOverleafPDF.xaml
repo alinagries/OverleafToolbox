@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1251,1527</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1251,1619</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>downloadOverleafPDF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -58,7 +58,6 @@
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="downloadOverleafPDF" sap:VirtualizedContainerService.HintSize="672,1454" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -93,11 +92,7 @@
             </ui:Click>
             <Sequence DisplayName="try downloading" sap:VirtualizedContainerService.HintSize="554,916" sap2010:WorkflowViewState.IdRef="Sequence_10">
               <Sequence.Variables>
-                <Variable x:TypeArguments="x:Boolean" Name="downloaded">
-                  <Variable.Default>
-                    <Literal x:TypeArguments="x:Boolean" />
-                  </Variable.Default>
-                </Variable>
+                <Variable x:TypeArguments="x:Boolean" Default="False" Name="downloaded" />
               </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -138,7 +133,7 @@
                         </ActivityAction>
                       </ui:GetLastDownloadedFile.Body>
                     </ui:GetLastDownloadedFile>
-                    <Assign sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign DisplayName="Check if something was downloaded" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Boolean">[downloaded]</OutArgument>
                       </Assign.To>
