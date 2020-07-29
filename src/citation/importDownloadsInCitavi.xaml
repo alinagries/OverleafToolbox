@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1251,3964</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1251,4083</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>importDownloadsInCitavi_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -56,11 +56,10 @@
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="importDownloadsInCitavi" sap:VirtualizedContainerService.HintSize="504,3799" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="importDownloadsInCitavi" sap:VirtualizedContainerService.HintSize="504,3918" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Window" Name="openedExplorer" />
     </Sequence.Variables>
@@ -277,13 +276,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:WindowScope>
-    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach to Citavi" sap:VirtualizedContainerService.HintSize="462,490" sap2010:WorkflowViewState.IdRef="WindowScope_10" InformativeScreenshot="f1c361d9c0f925a5c20e8a43a123a3a4" Selector="&lt;wnd app='citavi.exe' ctrlname='MainForm' /&gt;">
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach to Citavi" sap:VirtualizedContainerService.HintSize="462,609" sap2010:WorkflowViewState.IdRef="WindowScope_10" InformativeScreenshot="f1c361d9c0f925a5c20e8a43a123a3a4" Selector="&lt;wnd app='citavi.exe' ctrlname='MainForm' /&gt;">
       <ui:WindowScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="376,344" sap2010:WorkflowViewState.IdRef="Sequence_16">
+          <Sequence sap:VirtualizedContainerService.HintSize="376,463" sap2010:WorkflowViewState.IdRef="Sequence_16">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -333,6 +332,13 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
+            <Delay sap2010:Annotation.AnnotationText="There should probably be a better wait-solution here but this will do for now" DisplayName="Wait for import " Duration="00:00:03" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="Delay_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </Delay>
           </Sequence>
         </ActivityAction>
       </ui:WindowScope.Body>
