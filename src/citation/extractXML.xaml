@@ -104,9 +104,6 @@
             <DelegateInArgument x:TypeArguments="sxl:XElement" Name="item" />
           </ActivityAction.Argument>
           <Sequence DisplayName="Hauptteil" sap:VirtualizedContainerService.HintSize="767,554" sap2010:WorkflowViewState.IdRef="Sequence_2">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:String" Name="variable1" />
-            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -126,9 +123,6 @@
               </If.Then>
               <If.Else>
                 <Sequence sap:VirtualizedContainerService.HintSize="304,314" sap2010:WorkflowViewState.IdRef="Sequence_3">
-                  <Sequence.Variables>
-                    <Variable x:TypeArguments="x:String" Name="itemKey" />
-                  </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>

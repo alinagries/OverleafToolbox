@@ -2,11 +2,12 @@
   <x:Members>
     <x:Property Name="downloadedFile" Type="OutArgument(si:FileInfo)" />
     <x:Property Name="currentBrowser" Type="InArgument(ui:Browser)" />
+    <x:Property Name="projectName" Type="OutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>578.666666666667,1162.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1251,1205</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DownloadSources_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -58,57 +59,69 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DownloadSources" sap:VirtualizedContainerService.HintSize="552,998" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DownloadSources" sap:VirtualizedContainerService.HintSize="510,1040" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="510,647.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[currentBrowser]" BrowserType="Chrome" DisplayName="Attach Browser 'YourProje Page'" sap:VirtualizedContainerService.HintSize="468,555.333333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="e4df99535806fa0b38cbfd7e85a35572">
-        <ui:BrowserScope.Body>
-          <ActivityAction x:TypeArguments="x:Object">
-            <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-            </ActivityAction.Argument>
-            <ui:GetLastDownloadedFile DisplayName="Download File" DownloadFolder="[&quot;C:\Users\&quot; + Environment.UserName + &quot;\Downloads&quot;]" File="[downloadedFile]" sap:VirtualizedContainerService.HintSize="434,409.333333333333" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" Timeout="10">
-              <ui:GetLastDownloadedFile.Body>
-                <ActivityAction>
-                  <Sequence sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Download Icon" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
-                      <ui:Click.CursorPosition>
-                        <ui:CursorPosition OffsetX="8" OffsetY="10" Position="TopLeft" />
-                      </ui:Click.CursorPosition>
-                      <ui:Click.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="be432be4-00aa-407d-84b5-d8d8d53ba219" InformativeScreenshot="334273f80da7cb62ce34568dc437a1d5" Selector="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;button&amp;gt;i' idx='2' tag='I' /&gt;" WaitForReady="COMPLETE">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
-                        </ui:Target>
-                      </ui:Click.Target>
-                    </ui:Click>
-                  </Sequence>
-                </ActivityAction>
-              </ui:GetLastDownloadedFile.Body>
-            </ui:GetLastDownloadedFile>
-          </ActivityAction>
-        </ui:BrowserScope.Body>
-      </ui:BrowserScope>
-    </Sequence>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[downloadedFile.ToString]" />
-    <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="510,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
-    <ui:CloseTab Browser="[currentBrowser]" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="510,22" sap2010:WorkflowViewState.IdRef="CloseTab_1" />
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke getOverleafProjectName workflow" sap:VirtualizedContainerService.HintSize="468,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="src\utils\getOverleafProjectName.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="x:String" x:Key="projectName">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="projectName" />
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[currentBrowser]" BrowserType="Chrome" DisplayName="Attach Browser 'YourProje Page'" sap:VirtualizedContainerService.HintSize="468,697" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="e4df99535806fa0b38cbfd7e85a35572">
+      <ui:BrowserScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <ui:GetLastDownloadedFile DisplayName="Download File" DownloadFolder="[&quot;C:\Users\&quot; + Environment.UserName + &quot;\Downloads&quot;]" File="[downloadedFile]" sap:VirtualizedContainerService.HintSize="434,551" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" Timeout="10">
+            <ui:GetLastDownloadedFile.Body>
+              <ActivityAction>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,344" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click the menu" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition OffsetX="55" OffsetY="27" Position="TopLeft" />
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b9c8b090-cbdd-45c9-8492-0be9e89e7f2d" InformativeScreenshot="5ca8eacf2838ab4df81c03b148f4343e" Selector="&lt;webctrl aaname='Menu' parentid='chat-wrapper' tag='A' /&gt;" WaitForReady="COMPLETE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </ui:Click.Target>
+                  </ui:Click>
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click download sources" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition OffsetX="69" OffsetY="40" Position="TopLeft" />
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fdd4bc53-adca-40f2-bf92-c254be22e5f8" InformativeScreenshot="dae3af77892c1c577cc135022020ae3a" Selector="&lt;webctrl aaname='Source' tag='A' /&gt;" WaitForReady="COMPLETE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </ui:Click.Target>
+                  </ui:Click>
+                </Sequence>
+              </ActivityAction>
+            </ui:GetLastDownloadedFile.Body>
+          </ui:GetLastDownloadedFile>
+        </ActivityAction>
+      </ui:BrowserScope.Body>
+    </ui:BrowserScope>
+    <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="468,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+    <ui:CloseTab Browser="[currentBrowser]" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="468,22" sap2010:WorkflowViewState.IdRef="CloseTab_1" />
   </Sequence>
 </Activity>

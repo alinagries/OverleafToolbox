@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1251,852" sap2010:WorkflowViewState.IdRef="Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1251,979" sap2010:WorkflowViewState.IdRef="Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -49,31 +49,40 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="376,687" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap:VirtualizedContainerService.HintSize="376,814" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="ui:GenericValue" Default="[&quot;I should have been overwritten&quot;]" Name="urlFromCheck" />
-      <Variable x:TypeArguments="ui:Browser" Name="browserFromCheck" />
       <Variable x:TypeArguments="si:FileInfo" Name="downloadedFile" />
       <Variable x:TypeArguments="x:String" Default="[&quot;C:\Users\&quot;+Environment.UserName+&quot;\AppData\Local\Temp\RPA&quot;]" Name="unzipPath" />
       <Variable x:TypeArguments="ui:Browser" Name="githubBrowser" />
       <Variable x:TypeArguments="ui:Browser" Name="overleafBrowser" />
+      <Variable x:TypeArguments="x:String" Name="projectName" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke loginToOverleaf workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="src/utils/loginToOverleaf.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke loginAndClickProject workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="src\utils\loginAndClickProject.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="ui:Browser" x:Key="githubBrowser">[overleafBrowser]</OutArgument>
+        <InOutArgument x:TypeArguments="ui:Browser" x:Key="currentBrowser">
+          <mva:VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="overleafBrowser" />
+        </InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DownloadSources workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="src/github/DownloadSources.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="si:FileInfo" x:Key="downloadedFile">[downloadedFile]</OutArgument>
-        <InArgument x:TypeArguments="ui:Browser" x:Key="currentBrowser">[overleafBrowser]</InArgument>
+        <OutArgument x:TypeArguments="si:FileInfo" x:Key="downloadedFile">
+          <mva:VisualBasicReference x:TypeArguments="si:FileInfo" ExpressionText="downloadedFile" />
+        </OutArgument>
+        <InArgument x:TypeArguments="ui:Browser" x:Key="currentBrowser">
+          <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="overleafBrowser" />
+        </InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="projectName">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="projectName" />
+        </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke UnzipFile workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="src/github/UnzipFile.xaml">
@@ -87,9 +96,24 @@
         <OutArgument x:TypeArguments="ui:Browser" x:Key="githubBrowser">[githubBrowser]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke navigateToRepository workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="src\github\navigateToRepository.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InOutArgument x:TypeArguments="ui:Browser" x:Key="currentBrowser">
+          <mva:VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="githubBrowser" />
+        </InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="projectName">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="projectName" />
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke UploadToGit workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="src/github/UploadToGithub.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="ui:Browser" x:Key="githubBrowser">[githubBrowser]</InArgument>
+        <InArgument x:TypeArguments="ui:Browser" x:Key="githubBrowser">
+          <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="githubBrowser" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="projectName">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="projectName" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>
