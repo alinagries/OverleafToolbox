@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1251,3261</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1251,3363</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>UploadToGithub_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -63,20 +63,20 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This workflow assumes to already be on the repository main page&#xA;" DisplayName="UploadToGithub" sap:VirtualizedContainerService.HintSize="873,3096" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow assumes to already be on the repository main page&#xA;" DisplayName="UploadToGithub" sap:VirtualizedContainerService.HintSize="873,3198" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[githubBrowser]" BrowserType="Chrome" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="831,2962" sap2010:WorkflowViewState.IdRef="BrowserScope_1">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[githubBrowser]" BrowserType="Chrome" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="831,3064" sap2010:WorkflowViewState.IdRef="BrowserScope_1">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="797,2854" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence sap:VirtualizedContainerService.HintSize="797,2956" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="repositoryIsEmpty" />
             </Sequence.Variables>
@@ -87,10 +87,7 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:UiElementExists DisplayName="Is Repository emptry?" Exists="[repositoryIsEmpty]" sap:VirtualizedContainerService.HintSize="755,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
               <ui:UiElementExists.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="63350bd7-72da-4309-bfff-a9fc35e0c3e0" InformativeScreenshot="773f1e5a1ffe6c64802bb84f41428b68" Selector="&lt;webctrl aaname='uploading an existing file' parentid='js-repo-pjax-container' tag='A' /&gt;">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="63350bd7-72da-4309-bfff-a9fc35e0c3e0" InformativeScreenshot="773f1e5a1ffe6c64802bb84f41428b68" Selector="&lt;webctrl aaname='uploading an existing file' parentid='js-repo-pjax-container' tag='A' /&gt;" TimeoutMS="3000">
                   <ui:Target.WaitForReady>
                     <InArgument x:TypeArguments="ui:WaitForReady" />
                   </ui:Target.WaitForReady>
@@ -198,13 +195,13 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Upload Files" sap:VirtualizedContainerService.HintSize="755,1010" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="a45c021a7d9417933cd0bd23c94b363d" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Öffnen' /&gt;">
+            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Upload Files" sap:VirtualizedContainerService.HintSize="755,1112" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="a45c021a7d9417933cd0bd23c94b363d" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Öffnen' /&gt;">
               <ui:WindowScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,864" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,966" sap2010:WorkflowViewState.IdRef="Sequence_3">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -222,7 +219,13 @@
                         </ui:Target>
                       </ui:TypeInto.Target>
                     </ui:TypeInto>
-                    <Delay Duration="00:00:06" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                    <Delay sap2010:Annotation.AnnotationText="We need to wait until the specified folder is loaded. This could  take longer on eg. an hdd&#xD;&#xA;&#xD;&#xA;TODO: improve this" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="334,124" sap2010:WorkflowViewState.IdRef="Delay_1">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Delay>
                     <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="select all files" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="a" KeyModifiers="Ctrl" SpecialKey="False">
                       <ui:SendHotkey.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="b786bdbc-2e6b-41fa-a95a-fc8bc59337e7" InformativeScreenshot="b6a071ab4eb459fe18aca56447e2fbb1">
@@ -250,7 +253,7 @@
                         </ui:Target>
                       </ui:Click.Target>
                     </ui:Click>
-                    <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                    <Delay DisplayName="wait for upload" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
                     <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="enter commit message" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="True" Text="rpa save">
                       <ui:TypeInto.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7e39d17d-af9a-4f2d-9d22-8612bf9f66a3" InformativeScreenshot="76cc2f2ffcef2b8cfdc8554042a4d0e3" Selector="&lt;html app='chrome.exe' omit:title='Upload files · alinagries/RPA2020RepoForBot' /&gt;&lt;webctrl id='commit-summary-input' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
@@ -339,7 +342,7 @@
                   </Sequence>
                 </ui:InterruptibleWhile.Body>
                 <ui:InterruptibleWhile.Condition>
-                  <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="currentUrl = originalUploadUrl" />
+                  <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="currentUrl = originalUploadUrl" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
                 </ui:InterruptibleWhile.Condition>
               </ui:InterruptibleWhile>
             </Sequence>
