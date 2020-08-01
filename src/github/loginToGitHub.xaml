@@ -60,18 +60,13 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="loginToGitHub" sap:VirtualizedContainerService.HintSize="653,1303" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="titleString" />
-      <Variable x:TypeArguments="x:Boolean" Name="inLoginScreen">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Boolean" Value="True" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Boolean" Default="True" Name="inLoginScreen" />
       <Variable x:TypeArguments="x:String" Name="account" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -121,15 +116,9 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke getBotCredentials workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="src/credentials/getCredentials.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <OutArgument x:TypeArguments="x:String" x:Key="username">
-                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="username" />
-                      </OutArgument>
-                      <OutArgument x:TypeArguments="x:String" x:Key="password">
-                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="password" />
-                      </OutArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="targetCredential">
-                        <Literal x:TypeArguments="x:String">RPA_GITHUB</Literal>
-                      </InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="username">[username]</OutArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="password">[password]</OutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="targetCredential">RPA_GITHUB</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                   <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Enter username" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="True" Text="[username]">
@@ -141,7 +130,7 @@
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" Activate="True" DelayMS="3000" DisplayName="Enter password" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="True" Text="[password]">
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Enter password" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="True" Text="[password]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c961b79e-21b4-47e8-80e5-ba6e24b7a5e3" InformativeScreenshot="cec262b3a7fd7e2b855b688954b582aa" Selector="&lt;webctrl id='password' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
