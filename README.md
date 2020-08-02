@@ -19,4 +19,4 @@ To run the project, you should:
 
 To choose between our features, execute src/ChooseFeature.xaml. The rest should be explained within the programm.
 
-_Be sure to only have one Chrome window open, else UiPath could fail the execution!_
+_Be sure to close your Chrome windows before execution.
