@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1251,2287</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>821.333333333333,2446</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>exportDBLP_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -61,10 +61,9 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="exportDBLP" sap:VirtualizedContainerService.HintSize="831,2122" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="exportDBLP" sap:VirtualizedContainerService.HintSize="831.333333333333,2281.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:GenericValue" Default="[&quot;&quot;]" Name="query" />
       <Variable x:TypeArguments="ui:Browser" Name="browser" />
@@ -75,18 +74,18 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InputDialog Options="{x:Null}" DisplayName="Get Paper Title" sap:VirtualizedContainerService.HintSize="789,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Please enter a search string" Title="BibTeX Search">
+    <ui:InputDialog Options="{x:Null}" DisplayName="Get Paper Title" sap:VirtualizedContainerService.HintSize="789.333333333333,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Please enter a search string" Title="BibTeX Search">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[papertitle]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="789,1284" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="True" UiBrowser="[browser]" Url="https://dblp.org/">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="789.333333333333,1443.33333333333" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="True" UiBrowser="[browser]" Url="https://dblp.org/">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="755,1183" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="755.333333333333,1340.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="ui:UiElement" Name="amountOfMatchesElement" />
               <Variable x:TypeArguments="x:String" Name="amountOfMatchesString" />
@@ -109,7 +108,19 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Enter search query" sap:VirtualizedContainerService.HintSize="713,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[papertitle]">
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="713.333333333333,117.333333333333" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="up" KeyModifiers="Win" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="09faa6fb-efb3-425d-9823-4cf88a1fdd29">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Enter search query" sap:VirtualizedContainerService.HintSize="713.333333333333,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[papertitle]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="703310f7-1a3c-42c7-a57e-d386347a5479" InformativeScreenshot="1fd776d096517145d1a3db0a9b576364" Selector="&lt;webctrl name='q' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
@@ -118,7 +129,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find amount of matches" FoundElement="[amountOfMatchesElement]" sap:VirtualizedContainerService.HintSize="713,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
+            <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find amount of matches" FoundElement="[amountOfMatchesElement]" sap:VirtualizedContainerService.HintSize="713.333333333333,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
               <ui:WaitUiElementAppear.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="27716558-f891-42f2-abff-8e1328d90753" InformativeScreenshot="da8bf4cd3f373de87eec72d756358309" Selector="&lt;webctrl id='completesearch-info-matches' aaname='^(?!found 5,128,988 matches)(found (\d|,)* match)|(no matches)' matching:aaname='regex' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
@@ -207,11 +218,7 @@
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="535,426" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <Sequence.Variables>
-            <Variable x:TypeArguments="x:String" Name="shouldImportToCitavi">
-              <Variable.Default>
-                <Literal x:TypeArguments="x:String">No</Literal>
-              </Variable.Default>
-            </Variable>
+            <Variable x:TypeArguments="x:String" Default="No" Name="shouldImportToCitavi" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -223,9 +230,7 @@
             <If.Then>
               <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke importDownloadsInCitavi workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="src\citation\importDownloadsInCitavi.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="scg:ICollection(si:FileInfo)" x:Key="allDownloadedFiles">
-                    <mva:VisualBasicValue x:TypeArguments="scg:ICollection(si:FileInfo)" ExpressionText="allDownloadedFiles" />
-                  </InArgument>
+                  <InArgument x:TypeArguments="scg:ICollection(si:FileInfo)" x:Key="allDownloadedFiles">[allDownloadedFiles]</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
             </If.Then>

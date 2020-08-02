@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1251,1857</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>728,2013.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>navigateToRepository_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -57,38 +57,45 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="navigateToRepository" sap:VirtualizedContainerService.HintSize="653,1692" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="navigateToRepository" sap:VirtualizedContainerService.HintSize="652.666666666667,1848.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[currentBrowser]" BrowserType="Chrome" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="611,1600" sap2010:WorkflowViewState.IdRef="BrowserScope_1" UiBrowser="[currentBrowser]">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[currentBrowser]" BrowserType="Chrome" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="610.666666666667,1756.66666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_1" UiBrowser="[currentBrowser]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="577,1492" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="576.666666666667,1648.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="username" />
-              <Variable x:TypeArguments="x:Boolean" Name="repositoryNotFound">
-                <Variable.Default>
-                  <Literal x:TypeArguments="x:Boolean" Value="True" />
-                </Variable.Default>
-              </Variable>
+              <Variable x:TypeArguments="x:Boolean" Default="True" Name="repositoryNotFound" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:NavigateTo Browser="[currentBrowser]" DisplayName="Navigate To" sap:VirtualizedContainerService.HintSize="535,59" sap2010:WorkflowViewState.IdRef="NavigateTo_1" Url="https://github.com/" />
-            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get username" sap:VirtualizedContainerService.HintSize="535,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="534.666666666667,117.333333333333" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="up" KeyModifiers="Win" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="09faa6fb-efb3-425d-9823-4cf88a1fdd29">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <ui:NavigateTo Browser="[currentBrowser]" DisplayName="Navigate To" sap:VirtualizedContainerService.HintSize="534.666666666667,58.6666666666667" sap2010:WorkflowViewState.IdRef="NavigateTo_1" Url="https://github.com/" />
+            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get username" sap:VirtualizedContainerService.HintSize="534.666666666667,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
               <ui:GetValue.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="433566ca-5119-4884-9f21-303287436679" InformativeScreenshot="fcdd0933254fe97d129cbfbe326d1fec" Selector="&lt;html app='chrome.exe' title='GitHub' /&gt;&lt;webctrl tag='SPAN' parentclass='no-underline btn-link text-gray-dark text-bold width-full' idx='3' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -103,7 +110,7 @@
                 <OutArgument x:TypeArguments="x:String">[username]</OutArgument>
               </ui:GetValue.Value>
             </ui:GetValue>
-            <ui:NavigateTo Browser="[currentBrowser]" DisplayName="Navigate To" sap:VirtualizedContainerService.HintSize="535,59" sap2010:WorkflowViewState.IdRef="NavigateTo_2" Url="[&quot;https://github.com/&quot;+username+&quot;/&quot;+projectName]" />
+            <ui:NavigateTo Browser="[currentBrowser]" DisplayName="Navigate To" sap:VirtualizedContainerService.HintSize="534.666666666667,58.6666666666667" sap2010:WorkflowViewState.IdRef="NavigateTo_2" Url="[&quot;https://github.com/&quot;+username+&quot;/&quot;+projectName]" />
             <ui:UiElementExists DisplayName="Does Repository exist?" Exists="[repositoryNotFound]" sap:VirtualizedContainerService.HintSize="535,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
               <ui:UiElementExists.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="55abdcd7-4711-4ef9-98fe-74350c486cd5" InformativeScreenshot="d734529dfa5afb9b7446d3e456fd1d82" Selector="&lt;html app='chrome.exe' title='Page not found · GitHub' /&gt;&lt;webctrl aaname='404 “This is not the web page you are looking for”' tag='IMG' /&gt;" TimeoutMS="3000">

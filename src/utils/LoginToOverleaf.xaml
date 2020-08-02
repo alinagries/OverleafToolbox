@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1251,1406</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>728,1564.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>loginToGitHub_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -59,11 +59,10 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="loginToGitHub" sap:VirtualizedContainerService.HintSize="653,1241" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="loginToGitHub" sap:VirtualizedContainerService.HintSize="652.666666666667,1400" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="account" />
       <Variable x:TypeArguments="x:Boolean" Default="False" Name="loggedIn" />
@@ -74,19 +73,31 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="611,1149" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="True" UiBrowser="[githubBrowser]" Url="https://www.overleaf.com/login">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="610.666666666667,1308" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="True" UiBrowser="[githubBrowser]" Url="https://www.overleaf.com/login">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="577,1048" sap2010:WorkflowViewState.IdRef="Sequence_12">
+          <Sequence sap:VirtualizedContainerService.HintSize="576.666666666667,1205.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_12">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="url" DisplayName="Get attribute" sap:VirtualizedContainerService.HintSize="535,96" sap2010:WorkflowViewState.IdRef="GetAttribute_1">
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="534.666666666667,117.333333333333" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="up" KeyModifiers="Win" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="09faa6fb-efb3-425d-9823-4cf88a1fdd29">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="url" DisplayName="Get attribute" sap:VirtualizedContainerService.HintSize="534.666666666667,96" sap2010:WorkflowViewState.IdRef="GetAttribute_1">
               <ui:GetAttribute.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[url]</OutArgument>
               </ui:GetAttribute.Result>
@@ -112,15 +123,9 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke getBotCredentials workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="src/credentials/getCredentials.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <OutArgument x:TypeArguments="x:String" x:Key="username">
-                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="username" />
-                      </OutArgument>
-                      <OutArgument x:TypeArguments="x:String" x:Key="password">
-                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="password" />
-                      </OutArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="targetCredential">
-                        <Literal x:TypeArguments="x:String">RPA_OVERLEAF</Literal>
-                      </InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="username">[username]</OutArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="password">[password]</OutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="targetCredential">RPA_OVERLEAF</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                   <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Enter username" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="True" Text="[username]">

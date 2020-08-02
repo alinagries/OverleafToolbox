@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1251,1899</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>728,2060</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>copyToOverleaf_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -60,10 +60,9 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.Configuration.Install</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="copyToOverleaf" sap:VirtualizedContainerService.HintSize="530,1734" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="copyToOverleaf" sap:VirtualizedContainerService.HintSize="530.666666666667,1895.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="references.bib" Name="bibTeXFile" />
       <Variable x:TypeArguments="ui:Browser" Name="currentBrowser" />
@@ -73,18 +72,18 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke loginAndClickProject workflow" sap:VirtualizedContainerService.HintSize="488,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="src\utils\loginAndClickProject.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke loginAndClickProject workflow" sap:VirtualizedContainerService.HintSize="488.666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="src\utils\loginAndClickProject.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="ui:Browser" x:Key="currentBrowser">[currentBrowser]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[currentBrowser]" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe TestRPA'" sap:VirtualizedContainerService.HintSize="488,1515" sap2010:WorkflowViewState.IdRef="BrowserScope_3" InformativeScreenshot="3813d4b5bc3927da56f9a323361be63b">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[currentBrowser]" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe TestRPA'" sap:VirtualizedContainerService.HintSize="488.666666666667,1676.66666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_3" InformativeScreenshot="3813d4b5bc3927da56f9a323361be63b">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="navigate to .bib" sap:VirtualizedContainerService.HintSize="454,1369" sap2010:WorkflowViewState.IdRef="Sequence_21">
+          <Sequence DisplayName="navigate to .bib" sap:VirtualizedContainerService.HintSize="454.666666666667,1530.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_21">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Default="False" Name="bibFound" />
             </Sequence.Variables>
@@ -93,7 +92,19 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InterruptibleWhile DisplayName="While" sap:VirtualizedContainerService.HintSize="412,495" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="412.666666666667,117.333333333333" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="up" KeyModifiers="Win" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="09faa6fb-efb3-425d-9823-4cf88a1fdd29">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <ui:InterruptibleWhile DisplayName="While" sap:VirtualizedContainerService.HintSize="412.666666666667,499.333333333333" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
               <ui:InterruptibleWhile.Body>
                 <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,330" sap2010:WorkflowViewState.IdRef="Sequence_12">
                   <Sequence.Variables>
