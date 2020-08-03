@@ -8,13 +8,9 @@ These include:
 3. Adding BibTeX from dblp or citavi. When imported and downloaded from dblp, they can also be added to an open citavi project.
 4. Credential management, GitHub and Overleaf logins are saved to the local [Windows Credential Manager](https://support.microsoft.com/en-gb/help/4026814/windows-accessing-credential-manager)
 )
-# Installation
+# Requirements
 
-To run the project, you should:
-
-1. install [UiPath](https://www.uipath.com) (any up-to-date version is sufficient). 
-2. install Chrome.
-3. open the project in UiPath.
+To run the project, you should have [UiPath](https://www.uipath.com) (any up-to-date version is sufficient) and [Chrome](https://www.google.com/intl/en/chrome/) installed. Since UiPath only supports Windows, you should have that too :D
 
 # Usage
 
