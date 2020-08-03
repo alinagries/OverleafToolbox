@@ -16,4 +16,4 @@ To run the project, you should have [UiPath](https://www.uipath.com) (any up-to-
 
 To choose between our features, execute src/ChooseFeature.xaml. The rest should be explained within the programm.
 
-Be sure to close your Chrome windows before execution.
+Be sure to close your Chrome windows before execution. In Chrome, the default download folder is set to "Downloads". If you changed this Chrome setting, please reset to default or adjust it in the code.
