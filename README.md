@@ -1,4 +1,4 @@
-# RPA2020
+# Overleaf Toolbox
 
 This projects aims to automize common workflows when working with overleaf by using Robotic Process Automation (RPA). 
 These include:
