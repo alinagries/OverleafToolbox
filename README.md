@@ -10,7 +10,7 @@ These include:
 )
 # Requirements
 
-To run the project, you should have [UiPath](https://www.uipath.com) (any up-to-date version is sufficient) and [Chrome](https://www.google.com/intl/en/chrome/) installed. Since UiPath only supports Windows, you should have that too :D
+To run the project, you should have [UiPath](https://www.uipath.com) (any up-to-date version is sufficient) and [Chrome](https://www.google.com/intl/en/chrome/) installed. Since UiPath only supports Windows, you should have installed Windows. We build our tool with UiPath Studio version 2020.4.3 under the Community License and tested it on Windows 10 Home 64-Bit with .NET Framework-Version 4.8.
 
 # Usage
 
