@@ -7,7 +7,6 @@ These include:
 2. Sending an Overleaf project via e-mail (Thunderbird and Windows mail).
 3. Adding BibTeX from dblp or citavi. When imported and downloaded from dblp, they can also be added to an open citavi project.
 4. Credential management, GitHub and Overleaf logins are saved to the local [Windows Credential Manager](https://support.microsoft.com/en-gb/help/4026814/windows-accessing-credential-manager)
-)
 
 Screencasts can be found [here](https://drive.google.com/drive/folders/1TsIXNFXwVqbkJ3NhGjY2lo2bUT_hw7Y1?usp=sharing).
 # Requirements
